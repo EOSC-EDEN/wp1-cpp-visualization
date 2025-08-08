@@ -1,0 +1,182 @@
+[
+  {
+    "id": "CPP-029",
+    "label": "CPP-029",
+    "sub": "Ingest",
+    "cluster": "lifecycle"
+  },
+  {
+    "id": "CPP-021",
+    "label": "CPP-021",
+    "sub": "AIP Versioning",
+    "cluster": "lifecycle"
+  },
+  {
+    "id": "CPP-017",
+    "label": "CPP-017",
+    "sub": "Disposal",
+    "cluster": "lifecycle"
+  },
+  {
+    "id": "CPP-008",
+    "label": "CPP-008",
+    "sub": "Format ID",
+    "cluster": "characterisation"
+  },
+  {
+    "id": "CPP-010",
+    "label": "CPP-010",
+    "sub": "Format Validation",
+    "cluster": "characterisation"
+  },
+  {
+    "id": "CPP-007",
+    "label": "CPP-007",
+    "sub": "Virus Scanning",
+    "cluster": "characterisation"
+  },
+  {
+    "id": "CPP-009",
+    "label": "CPP-009",
+    "sub": "Metadata Extraction",
+    "cluster": "characterisation"
+  },
+  {
+    "id": "CPP-001",
+    "label": "CPP-001",
+    "sub": "Checksum Gen & Rec",
+    "cluster": "bit-level"
+  },
+  {
+    "id": "CPP-002",
+    "label": "CPP-002",
+    "sub": "Checksum Validation",
+    "cluster": "bit-level"
+  },
+  {
+    "id": "CPP-003",
+    "label": "CPP-003",
+    "sub": "Integrity Checking",
+    "cluster": "bit-level"
+  },
+  {
+    "id": "CPP-004",
+    "label": "CPP-004",
+    "sub": "Data Corruption Mgmt",
+    "cluster": "bit-level"
+  },
+  {
+    "id": "CPP-011",
+    "label": "CPP-011",
+    "sub": "Replication",
+    "cluster": "bit-level"
+  },
+  {
+    "id": "CPP-006",
+    "label": "CPP-006",
+    "sub": "Batch Export",
+    "cluster": "bit-level"
+  },
+  {
+    "id": "CPP-030",
+    "label": "CPP-030",
+    "sub": "Refreshment",
+    "cluster": "bit-level"
+  },
+  {
+    "id": "CPP-014",
+    "label": "CPP-014",
+    "sub": "File Format Migration",
+    "cluster": "generation"
+  },
+  {
+    "id": "CPP-026",
+    "label": "CPP-026",
+    "sub": "Normalisation",
+    "cluster": "generation"
+  },
+  {
+    "id": "CPP-027",
+    "label": "CPP-027",
+    "sub": "File Repair",
+    "cluster": "generation"
+  },
+  {
+    "id": "CPP-028",
+    "label": "CPP-028",
+    "sub": "Derivative Copies",
+    "cluster": "generation"
+  },
+  {
+    "id": "CPP-015",
+    "label": "CPP-015",
+    "sub": "Emulation/Rendering",
+    "cluster": "dissemination"
+  },
+  {
+    "id": "CPP-025",
+    "label": "CPP-025",
+    "sub": "Access",
+    "cluster": "dissemination"
+  },
+  {
+    "id": "CPP-024",
+    "label": "CPP-024",
+    "sub": "Discovery",
+    "cluster": "dissemination"
+  },
+  {
+    "id": "CPP-005",
+    "label": "CPP-005",
+    "sub": "PID Management",
+    "cluster": "dissemination"
+  },
+  {
+    "id": "CPP-022",
+    "label": "CPP-022",
+    "sub": "Significant Props Def",
+    "cluster": "planning"
+  },
+  {
+    "id": "CPP-023",
+    "label": "CPP-023",
+    "sub": "Risk Def. & Extraction",
+    "cluster": "planning"
+  },
+  {
+    "id": "CPP-012",
+    "label": "CPP-012",
+    "sub": "Preservation Risk Mit",
+    "cluster": "planning"
+  },
+  {
+    "id": "CPP-018",
+    "label": "CPP-018",
+    "sub": "Community Watch",
+    "cluster": "planning"
+  },
+  {
+    "id": "CPP-019",
+    "label": "CPP-019",
+    "sub": "Data Quality Assess",
+    "cluster": "planning"
+  },
+  {
+    "id": "CPP-013",
+    "label": "CPP-013",
+    "sub": "Object Mgmt Reporting",
+    "cluster": "planning"
+  },
+  {
+    "id": "CPP-016",
+    "label": "CPP-016",
+    "sub": "Metadata Ingest/Mgmt",
+    "cluster": "other"
+  },
+  {
+    "id": "CPP-020",
+    "label": "CPP-020",
+    "sub": "Rights Management",
+    "cluster": "other"
+  }
+]

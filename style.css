@@ -1,3 +1,5 @@
+/* style.css */
+
 body,
 html {
   font-family:
@@ -10,12 +12,133 @@ html {
   overflow: hidden;
   background-color: #f8f9fa;
 }
+
+:root {
+  --top-bar-height: 50px;
+  --side-bar-width: 220px;
+}
+
+body {
+  padding-top: var(--top-bar-height);
+  padding-left: var(--side-bar-width);
+  box-sizing: border-box;
+}
+
+.filter-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--top-bar-height);
+  background-color: #ffffff;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.filter-sidebar {
+  position: fixed;
+  left: 0;
+  top: var(--top-bar-height);
+  width: var(--side-bar-width);
+  height: calc(100% - var(--top-bar-height));
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  z-index: 25;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 8px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+}
+.filter-sidebar .filter-actions {
+    padding-bottom: 10px;
+}
+.filter-actions button {
+    padding: 4px 8px;
+    font-size: 12px;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.filter-actions button:hover {
+    background-color: #dee2e6;
+}
+
+.total-relations {
+    font-size: 13px;
+    font-weight: bold;
+    color: #343a40;
+    padding: 8px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.filter-header {
+    font-size: 14px;
+    font-weight: bold;
+    color: #495057;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 5px;
+}
+
+.filter-sidebar .filter-header:first-of-type {
+    margin-top: 0;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+.filter-option label {
+  margin-left: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none; /* ---  Prevents text selection --- */
+}
+
+.relation-count {
+    font-size: 12px;
+    color: #6c757d;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.filter-option input[type="checkbox"] {
+  cursor: pointer;
+  width: 1.15em;
+  height: 1.15em;
+}
+
 #svg-container {
   width: 100%;
   height: 100%;
   cursor: grab;
   position: relative;
 }
+
 #svg-container.grabbing {
   cursor: grabbing;
 }
@@ -44,6 +167,30 @@ html {
   fill: #333;
 }
 
+/* --- SVG Popup Styles --- */
+.popup-group {
+  pointer-events: none;
+}
+.popup-rect {
+  fill: rgba(51, 51, 51, 0.9);
+  stroke: rgba(0,0,0,0.2);
+  stroke-width: 1;
+}
+.popup-connector {
+  fill: rgba(51, 51, 51, 0.9);
+}
+.popup-link {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #a0d8ff;
+  text-decoration: none;
+  pointer-events: all;
+}
+.popup-link:hover {
+  text-decoration: underline;
+}
+
 .cluster-circle,
 .cluster-label {
   pointer-events: none;
@@ -63,86 +210,59 @@ html {
 .edge-path {
   stroke-width: 2px;
   fill: none;
-  stroke: #cccccc; /* Default grey color */
-}
-
-/* Highlighted State Colors */
-.edge--highlighted .edge-triggers {
-  stroke: #0d6efd;
-}
-.edge--highlighted .edge-uses {
-  stroke: #6f42c1;
-}
-.edge--highlighted .edge-input_for {
-  stroke: #198754;
-}
-.edge--highlighted .edge-conceptual {
-  stroke: #fd7e14;
+  stroke: #cccccc;
 }
 
 .edge--highlighted .edge-path {
-  stroke-width: 4px; /* Bolder on highlight */
+  stroke-width: 4px;
+}
+
+.edge-path.may_be_required_by,
+.edge-path.affinity_with,
+.edge-path.not_to_be_confused_with {
+  stroke-dasharray: 8, 8;
 }
 
 /* --- Focus & Dimming Effect --- */
+[data-filtered-out="true"] {
+  visibility: hidden !important;
+}
+
 .graph--dimmed .node-group,
 .graph--dimmed .edge-group,
 .graph--dimmed .cluster-circle,
 .graph--dimmed .cluster-label {
-  opacity: 0.15;
+  visibility: hidden;
 }
+
 .graph--dimmed .node--selected,
 .graph--dimmed .node--related,
 .graph--dimmed .edge--highlighted {
-  opacity: 1;
+  visibility: visible;
 }
+
 .node--selected .node-circle {
   stroke: #000;
   stroke-width: 5px;
 }
 
-/* --- Popup Styles --- */
-.popup {
-  position: absolute;
-  display: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-size: 12px;
-  white-space: nowrap;
-  z-index: 10;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+/* NEW: SVG text styling for line labels */
+.edge-label-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+  font-size: 24px;
+  font-weight: 500;
+  fill: #212529;
+  stroke: #ffffff;
+  stroke-width: 6px;
+  paint-order: stroke;
+  text-anchor: middle;
+  dominant-baseline: middle;
   pointer-events: none;
-}
-#node-popup {
-  background-color: rgba(51, 51, 51, 0.5);
-  pointer-events: auto;
-  transform: translate(-50%, -250%);
-}
-#node-popup a {
-  color: #a0d8ff;
-  text-decoration: none;
-  font-weight: bold;
-}
-#node-popup a:hover {
-  text-decoration: underline;
-}
-.line-popup {
-  transform: translate(-50%, -150%);
+  display: none;
 }
 
-/* Popup Color Themes with transparency */
-.popup--triggers {
-  background-color: rgba(13, 110, 253, 0.5);
-}
-.popup--uses {
-  background-color: rgba(111, 66, 193, 0.5);
-}
-.popup--input_for {
-  background-color: rgba(25, 135, 84, 0.5);
-}
-.popup--conceptual {
-  background-color: rgba(253, 126, 20, 0.5);
+.edge--highlighted .edge-label-text {
+  display: block;
 }
 
 /* Color Themes */
@@ -174,6 +294,7 @@ html {
   fill: #e9ecef;
   stroke: #d3d7db;
 }
+
 .cluster-label-planning {
   fill: #0f5132;
 }
