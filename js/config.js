@@ -28,47 +28,47 @@ export const nodeRadius = 100;
 export const relationTypes = {
   triggered_by: {
     color: "#999900",
-    description: "⚡ Triggered By",
+    description: "Triggered By",
     arrow: "incoming",
   },
   supplier: {
     color: "#994400",
-    description: "📦 Supplier",
+    description: "Supplier",
     arrow: "incoming",
   },
   dependency: {
     color: "#444",
-    description: "🔗 Dependency",
+    description: "Dependency",
     arrow: "incoming",
   },
   is_fallback_for: {
     color: "#999",
-    description: "🍂 Fallback For",
+    description: "Fallback For",
     arrow: "incoming",
   },
   facilitated_by: {
     color: "#999",
-    description: "🏣 Facilitated By",
+    description: "Facilitated By",
     arrow: "incoming",
   },
   affected_by: {
     color: "#999",
-    description: "💨 Affected By",
+    description: "Affected By",
     arrow: "incoming",
   },
   customer: {
     color: "#bb6600",
-    description: "📞 Customer",
+    description: "Customer",
     arrow: "outgoing",
   },
   enables: {
     color: "#999",
-    description: "➡️ Enables",
+    description: "Enables",
     arrow: "outgoing",
   },
   is_required_by: {
     color: "#999",
-    description: "📋 Required By",
+    description: "Required By",
     arrow: "outgoing",
   },
   may_be_required_by: {
@@ -83,7 +83,7 @@ export const relationTypes = {
   },
   not_to_be_confused_with: {
     color: "#999",
-    description: "💭 Confuse not",
+    description: "Confuse not",
     arrow: "outgoing",
   },
 };
