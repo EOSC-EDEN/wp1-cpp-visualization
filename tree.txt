@@ -6,11 +6,12 @@
 ├── index.html
 ├── js
 │   ├── config.js
+│   ├── filter.js
 │   ├── graph-layout.js
 │   ├── graph-renderer.js
 │   ├── interaction.js
-│   ├── stats-popup.js
-│   └── svg-creator.js
+│   ├── svg-creator.js
+│   └── ui-builder.js
 ├── main.js
 ├── nodes.json
 ├── README.md
@@ -18,4 +19,4 @@
 ├── style.css
 └── tree.txt
 
-2 directories, 16 files
+2 directories, 17 files
