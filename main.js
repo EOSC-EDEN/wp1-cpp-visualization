@@ -1,3 +1,5 @@
+// main.js
+
 import { clusterInfo, relationTypes } from "./js/config.js";
 import {
   createMarkers,
@@ -15,6 +17,7 @@ import { initializeInteractions } from "./js/interaction.js";
 import {
   initializeCategoryFilters,
   initializeRelationFilters,
+  initializeGlobalFilters,
 } from "./js/ui-builder.js";
 import { applyCombinedFilter } from "./js/filter.js";
 
@@ -23,36 +26,38 @@ import { applyCombinedFilter } from "./js/filter.js";
  * @param {Array} allEdges - The complete list of edge data objects.
  */
 function updateVisibleCounts(allEdges) {
-    const counts = {};
-    let totalVisible = 0;
+  const counts = {};
+  let totalVisible = 0;
 
-    // Initialize counts for all relation types
-    for(const type in relationTypes) {
-        counts[type] = 0;
+  // Initialize counts for all relation types
+  for (const type in relationTypes) {
+    counts[type] = 0;
+  }
+
+  // Count only the edges that are not filtered out
+  allEdges.forEach((edge) => {
+    if (
+      edge.groupElement &&
+      !edge.groupElement.hasAttribute("data-filtered-out")
+    ) {
+      counts[edge.type]++;
+      totalVisible++;
     }
+  });
 
-    // Count only the edges that are not filtered out
-    allEdges.forEach(edge => {
-        if (edge.groupElement && !edge.groupElement.hasAttribute('data-filtered-out')) {
-            counts[edge.type]++;
-            totalVisible++;
-        }
-    });
-
-    // Update the UI with the new counts
-    for(const type in counts) {
-        const countEl = document.querySelector(`[data-count-for="${type}"]`);
-        if(countEl) {
-            countEl.textContent = ` (${counts[type]})`;
-        }
+  // Update the UI with the new counts
+  for (const type in counts) {
+    const countEl = document.querySelector(`[data-count-for="${type}"]`);
+    if (countEl) {
+      countEl.textContent = ` (${counts[type]})`;
     }
+  }
 
-    const totalEl = document.getElementById('total-relations-count');
-    if(totalEl) {
-        totalEl.textContent = totalVisible;
-    }
+  const totalEl = document.getElementById("total-relations-count");
+  if (totalEl) {
+    totalEl.textContent = totalVisible;
+  }
 }
-
 
 async function main() {
   const svg = document.getElementById("cpp-diagram");
@@ -81,7 +86,7 @@ async function main() {
   const nodeMap = new Map(nodesData.map((n) => [n.id, n]));
   const { allEdges: edgeMap, parallelEdgeGroups } = generateAndGroupEdges(
     relationsData,
-    nodeMap,
+    nodeMap
   );
 
   createMarkers(defs);
@@ -96,6 +101,7 @@ async function main() {
 
   let activeCategoryIds = new Set(Object.keys(clusterInfo));
   let activeRelationTypeIds = new Set(Object.keys(relationTypes));
+  let globalOptions = { isStrictScope: false }; // State for new options
 
   const appState = {
     svg,
@@ -112,6 +118,7 @@ async function main() {
       edgeMap,
       activeCategoryIds,
       activeRelationTypeIds,
+      globalOptions.isStrictScope // Pass the new option
     );
     // After filtering, update the counts and popup state
     updateVisibleCounts(edgeMap);
@@ -127,6 +134,12 @@ async function main() {
 
   initializeRelationFilters(relationTypes, (updatedIds) => {
     activeRelationTypeIds = updatedIds;
+    updateGraphVisibility();
+  });
+
+  // Initialize the new global filter control
+  initializeGlobalFilters((updatedOptions) => {
+    globalOptions = updatedOptions;
     updateGraphVisibility();
   });
 

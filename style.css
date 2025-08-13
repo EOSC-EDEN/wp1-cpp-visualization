@@ -34,7 +34,7 @@ body {
   z-index: 30;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Changed from center */
   gap: 15px;
   padding: 0 20px;
   box-sizing: border-box;
@@ -42,6 +42,23 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
   border-bottom: 1px solid #dee2e6;
+}
+
+/* New style for grouping category filters */
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* New container for the global checkbox */
+.global-filter-container {
+    padding-left: 20px;
+    margin-left: auto; /* Pushes it to the right */
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-left: 1px solid #dee2e6;
 }
 
 .filter-sidebar {
@@ -66,6 +83,10 @@ body {
 }
 .filter-sidebar .filter-actions {
     padding-bottom: 10px;
+}
+#top-filter-bar .filter-actions {
+    padding-right: 15px;
+    margin-bottom: 0;
 }
 .filter-actions button {
     padding: 4px 8px;
@@ -128,9 +149,11 @@ body {
 
 .filter-option input[type="checkbox"] {
   cursor: pointer;
-  width: 1.15em;
-  height: 1.15em;
+  margin: 0; /* Resets any browser-default margin */
+  vertical-align: middle; /* Helps align the box with the label text */
+  accent-color: #0a58ca;
 }
+
 
 #svg-container {
   width: 100%;
