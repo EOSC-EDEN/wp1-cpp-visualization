@@ -59,6 +59,20 @@ function updateVisibleCounts(allEdges) {
   }
 }
 
+/**
+ * Adjusts layout based on the top filter bar's height.
+ * This ensures the side menu and main content are always pushed down correctly.
+ * @param {HTMLElement} topBar - The top filter bar element.
+ * @param {HTMLElement} sideBar - The side filter bar element.
+ */
+function adjustLayout(topBar, sideBar) {
+  const newHeight = topBar.offsetHeight;
+  document.body.style.paddingTop = `${newHeight}px`;
+  sideBar.style.top = `${newHeight}px`;
+  // Also adjust the sidebar's height to fill the remaining space
+  sideBar.style.height = `calc(100% - ${newHeight}px)`;
+}
+
 async function main() {
   const svg = document.getElementById("cpp-diagram");
   const svgContainer = document.getElementById("svg-container");
@@ -68,6 +82,9 @@ async function main() {
   const clustersGroup = document.getElementById("clusters");
   const clusterLabelsGroup = document.getElementById("cluster-labels");
   const defs = document.getElementById("arrow-defs");
+
+  const topFilterBar = document.getElementById("top-filter-bar");
+  const sideFilterBar = document.getElementById("side-filter-bar");
 
   const [nodesResponse, relationsResponse, linksResponse] = await Promise.all([
     fetch("nodes.json"),
@@ -86,7 +103,7 @@ async function main() {
   const nodeMap = new Map(nodesData.map((n) => [n.id, n]));
   const { allEdges: edgeMap, parallelEdgeGroups } = generateAndGroupEdges(
     relationsData,
-    nodeMap
+    nodeMap,
   );
 
   createMarkers(defs);
@@ -101,7 +118,7 @@ async function main() {
 
   let activeCategoryIds = new Set(Object.keys(clusterInfo));
   let activeRelationTypeIds = new Set(Object.keys(relationTypes));
-  let globalOptions = { isStrictScope: false }; // State for new options
+  let globalOptions = { isStrictScope: false };
 
   const appState = {
     svg,
@@ -118,9 +135,8 @@ async function main() {
       edgeMap,
       activeCategoryIds,
       activeRelationTypeIds,
-      globalOptions.isStrictScope // Pass the new option
+      globalOptions.isStrictScope
     );
-    // After filtering, update the counts and popup state
     updateVisibleCounts(edgeMap);
     if (interactions && interactions.updatePopupsOnFilterChange) {
       interactions.updatePopupsOnFilterChange();
@@ -137,11 +153,17 @@ async function main() {
     updateGraphVisibility();
   });
 
-  // Initialize the new global filter control
   initializeGlobalFilters((updatedOptions) => {
     globalOptions = updatedOptions;
     updateGraphVisibility();
   });
+
+  // Set up the ResizeObserver to handle layout adjustments automatically
+  const observer = new ResizeObserver(() => adjustLayout(topFilterBar, sideFilterBar));
+  observer.observe(topFilterBar);
+  
+  // Call it once initially to set the correct starting positions
+  adjustLayout(topFilterBar, sideFilterBar);
 
   updateGraphVisibility();
 }

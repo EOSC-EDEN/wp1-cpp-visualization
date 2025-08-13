@@ -19,7 +19,6 @@ html {
 }
 
 body {
-  padding-top: var(--top-bar-height);
   padding-left: var(--side-bar-width);
   box-sizing: border-box;
 }
@@ -29,44 +28,42 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--top-bar-height);
+  min-height: var(--top-bar-height); 
+  height: auto;
   background-color: #ffffff;
   z-index: 30;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Changed from center */
+  justify-content: flex-start;
   gap: 15px;
-  padding: 0 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
-  flex-wrap: wrap;
-  overflow-x: auto;
-  overflow-y: hidden;
+  flex-wrap: wrap; 
+  overflow-x: hidden;
   border-bottom: 1px solid #dee2e6;
 }
 
-/* New style for grouping category filters */
 .filter-group {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap; 
 }
 
-/* New container for the global checkbox */
 .global-filter-container {
     padding-left: 20px;
-    margin-left: auto; /* Pushes it to the right */
+    margin-left: auto;
     display: flex;
     align-items: center;
     height: 100%;
     border-left: 1px solid #dee2e6;
+    flex-shrink: 0;
 }
 
 .filter-sidebar {
   position: fixed;
   left: 0;
-  top: var(--top-bar-height);
   width: var(--side-bar-width);
-  height: calc(100% - var(--top-bar-height));
   background-color: #f8f9fa;
   border-right: 1px solid #dee2e6;
   z-index: 25;
@@ -149,8 +146,8 @@ body {
 
 .filter-option input[type="checkbox"] {
   cursor: pointer;
-  margin: 0; /* Resets any browser-default margin */
-  vertical-align: middle; /* Helps align the box with the label text */
+  margin: 0; 
+  vertical-align: middle; 
   accent-color: #0a58ca;
 }
 
