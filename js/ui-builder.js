@@ -91,8 +91,8 @@ function createActionButtons(container) {
   
   
     const relationGroups = [
-      { title: "Trigger events", types: ["triggered_by"] },
-      { title: "Step-by-step", types: ["supplier", "customer"] },
+      { title: "Trigger events", types: ["triggered_by", "customer"] },
+      { title: "Step-by-step", types: ["supplier"] },
       { title: "Dependencies", types: ["dependency"] },
       {
         title: "Other relations",
