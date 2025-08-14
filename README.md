@@ -1,4 +1,4 @@
-# eosc-eden-wp-1-2
+# wp1-cpp-visualization
 
 - Conceptual mockup of CPP relations in EOSC EDEN work package 1.2
 - https://cpp.fd-dev.csc.fi (hosted locally w/ simple httpd server)
