@@ -28,7 +28,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: var(--top-bar-height); 
+  min-height: var(--top-bar-height);
   height: auto;
   background-color: #ffffff;
   z-index: 30;
@@ -38,26 +38,48 @@ body {
   gap: 15px;
   padding: 10px 20px;
   box-sizing: border-box;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   overflow-x: hidden;
   border-bottom: 1px solid #dee2e6;
 }
 
+.classification-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 20px;
+  border-right: 1px solid #dee2e6;
+}
+
+.classification-selector-wrapper label {
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+#classification-selector {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 .filter-group {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap; 
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .global-filter-container {
-    padding-left: 20px;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    border-left: 1px solid #dee2e6;
-    flex-shrink: 0;
+  padding-left: 20px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-left: 1px solid #dee2e6;
+  flex-shrink: 0;
 }
 
 .filter-sidebar {
@@ -79,46 +101,46 @@ body {
   margin-bottom: 10px;
 }
 .filter-sidebar .filter-actions {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 #top-filter-bar .filter-actions {
-    padding-right: 15px;
-    margin-bottom: 0;
+  padding-right: 15px;
+  margin-bottom: 0;
 }
 .filter-actions button {
-    padding: 4px 8px;
-    font-size: 12px;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 .filter-actions button:hover {
-    background-color: #dee2e6;
+  background-color: #dee2e6;
 }
 
 .total-relations {
-    font-size: 13px;
-    font-weight: bold;
-    color: #343a40;
-    padding: 8px 0;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #dee2e6;
+  font-size: 13px;
+  font-weight: bold;
+  color: #343a40;
+  padding: 8px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .filter-header {
-    font-size: 14px;
-    font-weight: bold;
-    color: #495057;
-    margin-top: 15px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid #e9ecef;
-    padding-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #495057;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 5px;
 }
 
 .filter-sidebar .filter-header:first-of-type {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .filter-option {
@@ -134,23 +156,22 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  user-select: none; /* ---  Prevents text selection --- */
+  user-select: none;
 }
 
 .relation-count {
-    font-size: 12px;
-    color: #6c757d;
-    font-weight: normal;
-    margin-left: 5px;
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: normal;
+  margin-left: 5px;
 }
 
 .filter-option input[type="checkbox"] {
   cursor: pointer;
-  margin: 0; 
-  vertical-align: middle; 
+  margin: 0;
+  vertical-align: middle;
   accent-color: #0a58ca;
 }
-
 
 #svg-container {
   width: 100%;
@@ -163,7 +184,6 @@ body {
   cursor: grabbing;
 }
 
-/* --- Node & Cluster Styles --- */
 .node-group {
   cursor: pointer;
 }
@@ -187,20 +207,20 @@ body {
   fill: #333;
 }
 
-/* --- SVG Popup Styles --- */
 .popup-group {
   pointer-events: none;
 }
 .popup-rect {
   fill: rgba(51, 51, 51, 0.9);
-  stroke: rgba(0,0,0,0.2);
+  stroke: rgba(0, 0, 0, 0.2);
   stroke-width: 1;
 }
 .popup-connector {
   fill: rgba(51, 51, 51, 0.9);
 }
 .popup-link {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   font-size: 16px;
   font-weight: bold;
   color: #a0d8ff;
@@ -226,7 +246,6 @@ body {
   text-anchor: middle;
 }
 
-/* --- Edge Styles --- */
 .edge-path {
   stroke-width: 2px;
   fill: none;
@@ -243,7 +262,6 @@ body {
   stroke-dasharray: 8, 8;
 }
 
-/* --- Focus & Dimming Effect --- */
 [data-filtered-out="true"] {
   visibility: hidden !important;
 }
@@ -266,7 +284,6 @@ body {
   stroke-width: 5px;
 }
 
-/* NEW: SVG text styling for line labels */
 .edge-label-text {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
   font-size: 24px;
@@ -285,54 +302,34 @@ body {
   display: block;
 }
 
-/* Color Themes */
-.node-bit-level {
-  fill: #cfe2ff;
-  stroke: #9ec5fe;
-}
-.node-planning {
-  fill: #d1e7dd;
-  stroke: #a3cfbb;
-}
-.node-characterisation {
-  fill: #f8d7da;
-  stroke: #f1aeb5;
-}
-.node-generation {
-  fill: #fff3cd;
-  stroke: #ffe69c;
-}
-.node-dissemination {
-  fill: #cff4fc;
-  stroke: #9eeaf9;
-}
-.node-lifecycle {
-  fill: #e2d9f3;
-  stroke: #c0b6e0;
-}
-.node-other {
-  fill: #e9ecef;
-  stroke: #d3d7db;
-}
+/* Logical Classification Colors */
+.node-bit-level { fill: #cfe2ff; stroke: #9ec5fe; }
+.node-planning { fill: #d1e7dd; stroke: #a3cfbb; }
+.node-characterisation { fill: #f8d7da; stroke: #f1aeb5; }
+.node-generation { fill: #fff3cd; stroke: #ffe69c; }
+.node-dissemination { fill: #cff4fc; stroke: #9eeaf9; }
+.node-lifecycle { fill: #e2d9f3; stroke: #c0b6e0; }
+.node-other { fill: #e9ecef; stroke: #d3d7db; }
 
-.cluster-label-planning {
-  fill: #0f5132;
-}
-.cluster-label-characterisation {
-  fill: #842029;
-}
-.cluster-label-bit-level {
-  fill: #0a58ca;
-}
-.cluster-label-lifecycle {
-  fill: #49247a;
-}
-.cluster-label-dissemination {
-  fill: #055160;
-}
-.cluster-label-generation {
-  fill: #664d03;
-}
-.cluster-label-other {
-  fill: #41464b;
-}
+.cluster-label-bit-level { fill: #0a58ca; }
+.cluster-label-planning { fill: #0f5132; }
+.cluster-label-characterisation { fill: #842029; }
+.cluster-label-generation { fill: #664d03; }
+.cluster-label-dissemination { fill: #055160; }
+.cluster-label-lifecycle { fill: #49247a; }
+.cluster-label-other { fill: #41464b; }
+
+/* OAIS Classification Colors */
+.node-oais_cat1 { fill: #d1e7dd; stroke: #a3cfbb; } /* Ingest - Green */
+.node-oais_cat2 { fill: #f8d7da; stroke: #f1aeb5; } /* Admin - Red */
+.node-oais_cat3 { fill: #cfe2ff; stroke: #9ec5fe; } /* Data Mgmt - Blue */
+.node-oais_cat4 { fill: #e2d9f3; stroke: #c0b6e0; } /* Storage - Purple */
+.node-oais_cat5 { fill: #fff3cd; stroke: #ffe69c; } /* Planning - Yellow */
+.node-oais_cat6 { fill: #cff4fc; stroke: #9eeaf9; } /* Access - Cyan */
+
+.cluster-label-oais_cat1 { fill: #0f5132; }
+.cluster-label-oais_cat2 { fill: #842029; }
+.cluster-label-oais_cat3 { fill: #0a58ca; }
+.cluster-label-oais_cat4 { fill: #49247a; }
+.cluster-label-oais_cat5 { fill: #664d03; }
+.cluster-label-oais_cat6 { fill: #055160; }

@@ -3,180 +3,210 @@
     "id": "CPP-029",
     "label": "CPP-029",
     "sub": "Ingest",
-    "cluster": "lifecycle"
+    "logical_cluster": "lifecycle",
+    "oais_cluster": "oais_cat1"
   },
   {
     "id": "CPP-021",
     "label": "CPP-021",
     "sub": "AIP Versioning",
-    "cluster": "lifecycle"
+    "logical_cluster": "lifecycle",
+    "oais_cluster": "oais_cat1"
   },
   {
     "id": "CPP-017",
     "label": "CPP-017",
     "sub": "Disposal",
-    "cluster": "lifecycle"
+    "logical_cluster": "lifecycle",
+    "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-008",
     "label": "CPP-008",
     "sub": "Format ID",
-    "cluster": "characterisation"
+    "logical_cluster": "characterisation",
+    "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-010",
     "label": "CPP-010",
     "sub": "Format Validation",
-    "cluster": "characterisation"
+    "logical_cluster": "characterisation",
+    "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-007",
     "label": "CPP-007",
     "sub": "Virus Scanning",
-    "cluster": "characterisation"
+    "logical_cluster": "characterisation",
+    "oais_cluster": "oais_cat1"
   },
   {
     "id": "CPP-009",
     "label": "CPP-009",
     "sub": "Metadata Extraction",
-    "cluster": "characterisation"
+    "logical_cluster": "characterisation",
+    "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-001",
     "label": "CPP-001",
     "sub": "Checksum Gen & Rec",
-    "cluster": "bit-level"
+    "logical_cluster": "bit-level",
+    "oais_cluster": "oais_cat1"
   },
   {
     "id": "CPP-002",
     "label": "CPP-002",
     "sub": "Checksum Validation",
-    "cluster": "bit-level"
+    "logical_cluster": "bit-level",
+    "oais_cluster": "oais_cat1"
   },
   {
     "id": "CPP-003",
     "label": "CPP-003",
     "sub": "Integrity Checking",
-    "cluster": "bit-level"
+    "logical_cluster": "bit-level",
+    "oais_cluster": "oais_cat4"
   },
   {
     "id": "CPP-004",
     "label": "CPP-004",
     "sub": "Data Corruption Mgmt",
-    "cluster": "bit-level"
+    "logical_cluster": "bit-level",
+    "oais_cluster": "oais_cat4"
   },
   {
     "id": "CPP-011",
     "label": "CPP-011",
     "sub": "Replication",
-    "cluster": "bit-level"
+    "logical_cluster": "bit-level",
+    "oais_cluster": "oais_cat4"
   },
   {
     "id": "CPP-006",
     "label": "CPP-006",
     "sub": "Batch Export",
-    "cluster": "bit-level"
+    "logical_cluster": "bit-level",
+    "oais_cluster": "oais_cat4"
   },
   {
     "id": "CPP-030",
     "label": "CPP-030",
     "sub": "Refreshment",
-    "cluster": "bit-level"
+    "logical_cluster": "bit-level",
+    "oais_cluster": "oais_cat4"
   },
   {
     "id": "CPP-014",
     "label": "CPP-014",
     "sub": "File Format Migration",
-    "cluster": "generation"
+    "logical_cluster": "generation",
+    "oais_cluster": "oais_cat5"
   },
   {
     "id": "CPP-026",
     "label": "CPP-026",
     "sub": "Normalisation",
-    "cluster": "generation"
+    "logical_cluster": "generation",
+    "oais_cluster": "oais_cat1"
   },
   {
     "id": "CPP-027",
     "label": "CPP-027",
     "sub": "File Repair",
-    "cluster": "generation"
+    "logical_cluster": "generation",
+    "oais_cluster": "oais_cat5"
   },
   {
     "id": "CPP-028",
     "label": "CPP-028",
     "sub": "Derivative Copies",
-    "cluster": "generation"
+    "logical_cluster": "generation",
+    "oais_cluster": "oais_cat6"
   },
   {
     "id": "CPP-015",
     "label": "CPP-015",
     "sub": "Emulation/Rendering",
-    "cluster": "dissemination"
+    "logical_cluster": "dissemination",
+    "oais_cluster": "oais_cat6"
   },
   {
     "id": "CPP-025",
     "label": "CPP-025",
     "sub": "Access",
-    "cluster": "dissemination"
+    "logical_cluster": "dissemination",
+    "oais_cluster": "oais_cat6"
   },
   {
     "id": "CPP-024",
     "label": "CPP-024",
     "sub": "Discovery",
-    "cluster": "dissemination"
+    "logical_cluster": "dissemination",
+    "oais_cluster": "oais_cat3"
   },
   {
     "id": "CPP-005",
     "label": "CPP-005",
     "sub": "ID Mgmt.",
-    "cluster": "dissemination"
+    "logical_cluster": "dissemination",
+    "oais_cluster": "oais_cat3"
   },
   {
     "id": "CPP-022",
     "label": "CPP-022",
     "sub": "Significant Props Def",
-    "cluster": "planning"
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat5"
   },
   {
     "id": "CPP-023",
     "label": "CPP-023",
     "sub": "Risk Def. & Extraction",
-    "cluster": "planning"
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat5"
   },
   {
     "id": "CPP-012",
     "label": "CPP-012",
     "sub": "Preservation Risk Mit",
-    "cluster": "planning"
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat5"
   },
   {
     "id": "CPP-018",
     "label": "CPP-018",
     "sub": "Community Watch",
-    "cluster": "planning"
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat5"
   },
   {
     "id": "CPP-019",
     "label": "CPP-019",
     "sub": "Data Quality Assess",
-    "cluster": "planning"
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-013",
     "label": "CPP-013",
     "sub": "Object Mgmt Reporting",
-    "cluster": "planning"
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-016",
     "label": "CPP-016",
     "sub": "Metadata Ingest/Mgmt",
-    "cluster": "other"
+    "logical_cluster": "other",
+    "oais_cluster": "oais_cat3"
   },
   {
     "id": "CPP-020",
     "label": "CPP-020",
     "sub": "Rights Management",
-    "cluster": "other"
+    "logical_cluster": "other",
+    "oais_cluster": "oais_cat2"
   }
 ]

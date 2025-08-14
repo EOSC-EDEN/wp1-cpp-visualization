@@ -1,6 +1,6 @@
-// js/config.js
+// config.js
 
-export const clusterInfo = {
+export const logicalClusterInfo = {
   planning: { label: "Preservation Planning" },
   dissemination: { label: "Dissemination" },
   "bit-level": { label: "Bit-level Preservation" },
@@ -8,6 +8,28 @@ export const clusterInfo = {
   other: { label: "Other Activities" },
   lifecycle: { label: "Lifecycle Management" },
   characterisation: { label: "Characterisation" },
+};
+
+export const oaisClusterInfo = {
+  oais_cat1: { label: "Ingest" },
+  oais_cat2: { label: "Administration" },
+  oais_cat3: { label: "Data Management" },
+  oais_cat4: { label: "Storage" },
+  oais_cat5: { label: "Preservation Planning" },
+  oais_cat6: { label: "Access" },
+};
+
+export const classifications = {
+  logical: {
+    info: logicalClusterInfo,
+    key: "logical_cluster",
+    label: "Logical/Strategic",
+  },
+  oais: {
+    info: oaisClusterInfo,
+    key: "oais_cluster",
+    label: "OAIS",
+  },
 };
 
 export const nodeRadius = 100;

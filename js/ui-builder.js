@@ -1,6 +1,46 @@
 // js/ui-builder.js
 
 /**
+ * Creates the classification system selector dropdown.
+ * @param {object} classifications - The main classification configuration object.
+ * @param {function} onClassificationChange - Callback to run when the selector changes.
+ */
+export function initializeClassificationSelector(
+  classifications,
+  onClassificationChange,
+) {
+  const filterContainer = document.getElementById("top-filter-bar");
+  if (!filterContainer) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "classification-selector-wrapper";
+
+  const label = document.createElement("label");
+  label.htmlFor = "classification-selector";
+  label.textContent = "Classification:";
+
+  const select = document.createElement("select");
+  select.id = "classification-selector";
+
+  for (const key in classifications) {
+    const option = document.createElement("option");
+    option.value = key;
+    option.textContent = classifications[key].label;
+    select.appendChild(option);
+  }
+
+  wrapper.appendChild(label);
+  wrapper.appendChild(select);
+
+  // Prepend the selector to the filter bar
+  filterContainer.prepend(wrapper);
+
+  select.addEventListener("change", (e) => {
+    onClassificationChange(e.target.value);
+  });
+}
+
+/**
  * Helper function to create the "Select/Deselect All" button controls.
  * @param {HTMLElement} container - The parent container for the checkboxes.
  */
@@ -40,7 +80,6 @@ export function initializeCategoryFilters(clusterInfo, onFilterChange) {
   const filterContainer = document.getElementById("top-filter-bar");
   if (!filterContainer) return;
 
-  // Create a sub-container to group all category-related controls
   const categoryGroup = document.createElement("div");
   categoryGroup.className = "filter-group";
 
@@ -65,14 +104,14 @@ export function initializeCategoryFilters(clusterInfo, onFilterChange) {
     wrapper.appendChild(label);
     categoryGroup.appendChild(wrapper);
   }
-  
-  // Append the entire group of category filters to the main bar
+
   filterContainer.appendChild(categoryGroup);
 
   categoryGroup.addEventListener("change", () => {
     const activeIds = new Set(
-      Array.from(categoryGroup.querySelectorAll("input:checked"),
-      ).map((cb) => cb.value),
+      Array.from(categoryGroup.querySelectorAll("input:checked")).map(
+        (cb) => cb.value,
+      ),
     );
     onFilterChange(activeIds);
   });
@@ -86,7 +125,6 @@ export function initializeGlobalFilters(onOptionChange) {
   const filterContainer = document.getElementById("top-filter-bar");
   if (!filterContainer) return;
 
-  // Create its own container, style it, and add it to the bar
   const globalOptionsContainer = document.createElement("div");
   globalOptionsContainer.className = "global-filter-container";
 
@@ -97,7 +135,7 @@ export function initializeGlobalFilters(onOptionChange) {
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.id = "option-child-relationships";
-  checkbox.checked = false; // Default is the current view
+  checkbox.checked = false;
 
   const label = document.createElement("label");
   label.htmlFor = "option-child-relationships";
@@ -108,8 +146,7 @@ export function initializeGlobalFilters(onOptionChange) {
   wrapper.appendChild(checkbox);
   wrapper.appendChild(label);
   globalOptionsContainer.appendChild(wrapper);
-  
-  // Add the newly created container to the main filter bar
+
   filterContainer.appendChild(globalOptionsContainer);
 
   checkbox.addEventListener("change", () => {
@@ -129,13 +166,12 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
   if (!filterContainer) return;
 
   filterContainer.appendChild(createActionButtons(filterContainer));
-  
-  // Add total count display
-  const totalWrapper = document.createElement('div');
-  totalWrapper.classList.add('total-relations');
-  totalWrapper.innerHTML = 'Total Visible: <span id="total-relations-count">0</span>';
-  filterContainer.appendChild(totalWrapper);
 
+  const totalWrapper = document.createElement("div");
+  totalWrapper.classList.add("total-relations");
+  totalWrapper.innerHTML =
+    'Total Visible: <span id="total-relations-count">0</span>';
+  filterContainer.appendChild(totalWrapper);
 
   const relationGroups = [
     { title: "Trigger events", types: ["triggered_by", "customer"] },
@@ -177,16 +213,15 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
 
       const label = document.createElement("label");
       label.htmlFor = `filter-${typeKey}`;
-      
-      const labelText = document.createElement('span');
+
+      const labelText = document.createElement("span");
       labelText.textContent = info.description;
 
-      // Add a span to hold the count
-      const countSpan = document.createElement('span');
-      countSpan.classList.add('relation-count');
-      countSpan.setAttribute('data-count-for', typeKey);
-      countSpan.textContent = ' (0)'; // Default text
-      
+      const countSpan = document.createElement("span");
+      countSpan.classList.add("relation-count");
+      countSpan.setAttribute("data-count-for", typeKey);
+      countSpan.textContent = " (0)";
+
       label.appendChild(labelText);
       label.appendChild(countSpan);
 
@@ -201,9 +236,9 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
 
   filterContainer.addEventListener("change", () => {
     const activeIds = new Set(
-      Array.from(
-        filterContainer.querySelectorAll("input:checked"),
-      ).map((cb) => cb.value),
+      Array.from(filterContainer.querySelectorAll("input:checked")).map(
+        (cb) => cb.value,
+      ),
     );
     onFilterChange(activeIds);
   });
