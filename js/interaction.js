@@ -2,7 +2,7 @@
 
 import { relationTypes, nodeRadius } from "./config.js";
 
-export function initializeInteractions(state) {
+export function initializeInteractions(state, onSelectionChange) {
   let selectedNode = null;
   const highlightedEdges = new Set();
   let isPanning = false;
@@ -21,7 +21,6 @@ export function initializeInteractions(state) {
     state.svg.classList.remove("graph--dimmed");
     document.querySelector(".node--selected")?.classList.remove("node--selected");
     
-    // Hide the popup of the previously selected node
     if (selectedNode.popupElement) {
       selectedNode.popupElement.setAttribute("display", "none");
     }
@@ -41,6 +40,7 @@ export function initializeInteractions(state) {
     });
     highlightedEdges.clear();
     selectedNode = null;
+    if (onSelectionChange) onSelectionChange(null); // Report that selection was cleared
   }
 
   function selectNode(node) {
@@ -49,9 +49,7 @@ export function initializeInteractions(state) {
     state.svg.classList.add("graph--dimmed");
     node.element.classList.add("node--selected");
 
-    // Show the popup if it exists for this node
     if (node.popupElement) {
-      // Also check if the parent node is filtered out
       const isFilteredOut = node.element.getAttribute('data-filtered-out') === 'true';
       if (!isFilteredOut) {
         node.popupElement.setAttribute("display", "block");
@@ -88,6 +86,7 @@ export function initializeInteractions(state) {
         path.setAttribute("marker-end", markerEndUrl);
       }
     });
+    if (onSelectionChange) onSelectionChange(node.id); // Report the new selection
   }
 
   state.svgContainer.addEventListener("mousedown", (evt) => {
@@ -149,7 +148,6 @@ export function initializeInteractions(state) {
     panScale = state.svg.clientWidth / state.viewBox.w;
   });
 
-  // This function is still needed for when filters change
   function updatePopupsOnFilterChange() {
     if (selectedNode && selectedNode.popupElement) {
         const isFilteredOut = selectedNode.element.getAttribute('data-filtered-out') === 'true';
@@ -160,5 +158,6 @@ export function initializeInteractions(state) {
   return {
     clearSelection,
     updatePopupsOnFilterChange,
+    selectNode, // Expose the selectNode function
   };
 }
