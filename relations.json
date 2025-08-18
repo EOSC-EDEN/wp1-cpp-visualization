@@ -470,7 +470,7 @@
     "facilitated_by": [],
     "affected_by": [],
     "customer": [],
-    "enables": ["CPP-018"],
+    "enables": ["CPP-015"],
     "is_required_by": [],
     "may_be_required_by": [],
     "affinity_with": [],
