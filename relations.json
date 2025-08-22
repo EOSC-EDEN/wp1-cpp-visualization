@@ -544,7 +544,8 @@
       "CPP-026",
       "CPP-028"
     ],
-    "not_to_be_confused_with": []
+    "not_to_be_confused_with": [],
+    "triggers": ["CPP-001"]
   },
   "CPP-030": {
     "triggered_by": ["CPP-004"],
