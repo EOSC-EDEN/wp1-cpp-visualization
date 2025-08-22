@@ -252,7 +252,8 @@
     "is_required_by": [],
     "may_be_required_by": [],
     "affinity_with": ["CPP-026", "CPP-027"],
-    "not_to_be_confused_with": ["CPP-028"]
+    "not_to_be_confused_with": ["CPP-028"],
+    "triggers": ["CPP-001"]
   },
   "CPP-015": {
     "triggered_by": ["CPP-025"],
