@@ -30,7 +30,7 @@
   "CPP-003": {
     "triggered_by": ["CPP-012"],
     "supplier": ["CPP-012", "CPP-001", "CPP-002"],
-    "dependency": ["CPP-001", "CPP-002"],
+    "dependency": ["CPP-001", "CPP-012"],
     "is_fallback_for": [],
     "facilitated_by": [],
     "affected_by": [],
