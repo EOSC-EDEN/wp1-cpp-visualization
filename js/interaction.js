@@ -74,17 +74,14 @@ export function initializeInteractions(state, onSelectionChange) {
       path.classList.add(edge.type);
       edge.textElement.style.display = "block";
       const markerEndUrl = `url(#arrow-end-${edge.type})`;
-      const markerStartUrl = `url(#arrow-start-${edge.type})`;
+      
       if (relStyle.arrow === "outgoing" || relStyle.arrow === "incoming") {
         if (edge.isReversed) {
           path.setAttribute("marker-start", markerEndUrl);
         } else {
           path.setAttribute("marker-end", markerEndUrl);
         }
-      } else if (relStyle.arrow === "bidirectional") {
-        path.setAttribute("marker-start", markerStartUrl);
-        path.setAttribute("marker-end", markerEndUrl);
-      }
+      } 
     });
     if (onSelectionChange) onSelectionChange(node.id); // Report the new selection
   }
@@ -158,6 +155,6 @@ export function initializeInteractions(state, onSelectionChange) {
   return {
     clearSelection,
     updatePopupsOnFilterChange,
-    selectNode, // Expose the selectNode function
+    selectNode,
   };
 }

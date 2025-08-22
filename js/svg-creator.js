@@ -22,27 +22,6 @@ export function createMarkers(defs) {
     marker.appendChild(path);
     defs.appendChild(marker);
 
-    if (rel.arrow === "bidirectional") {
-      const markerStart = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "marker",
-      );
-      markerStart.id = `arrow-start-${type}`;
-      markerStart.setAttribute("viewBox", "0 -5 10 10");
-      markerStart.setAttribute("refX", "1");
-      markerStart.setAttribute("refY", "0");
-      markerStart.setAttribute("markerWidth", "6");
-      markerStart.setAttribute("markerHeight", "6");
-      markerStart.setAttribute("orient", "auto");
-      const pathStart = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "path",
-      );
-      pathStart.setAttribute("d", "M10,-5L0,0L10,5");
-      pathStart.style.fill = rel.color;
-      markerStart.appendChild(pathStart);
-      defs.appendChild(markerStart);
-    }
   }
 }
 
@@ -138,8 +117,8 @@ export function createNodes(nodesData, nodesGroup, cppLinks) {
       popupGroup.setAttribute("class", "popup-group");
       popupGroup.setAttribute("display", "none");
       
-      const popupWidth = 150;  // Increased size
-      const popupHeight = 45; // Increased size
+      const popupWidth = 150;
+      const popupHeight = 45;
       const verticalOffset = -nodeRadius - popupHeight - 15;
 
       const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");

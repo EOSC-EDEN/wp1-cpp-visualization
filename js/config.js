@@ -34,78 +34,119 @@ export const classifications = {
 
 export const nodeRadius = 100;
 
-// # ⚡ triggered_by
-// 📦 supplier
-// 📞 customer
-// 🔗 dependency
-// 🤝 affinity_with
-// 📋 is_required_by
-// 📑 may_be_required_by
-// 💭 not_to_be_confused_with
-// 🏣 facilitated_by
-// ➡️ enables
-// 🍂 is_fallback_for
-// 💨 affected_by
-
 export const relationTypes = {
-  triggered_by: {
-    color: "#999900",
-    description: "Triggered By",
+  // CATEGORY 1: Dependencies
+  requires: {
+    color: "#444444",
+    description: "Requires",
+    arrow: "outgoing",
+  },
+  required_by: {
+    color: "#444444",
+    description: "Required by",
     arrow: "incoming",
   },
+  may_require: {
+    color: "#9a9a9a",
+    description: "May require",
+    arrow: "outgoing",
+  },
+  may_be_required_by: {
+    color: "#9a9a9a",
+    description: "May be required by",
+    arrow: "incoming",
+  },
+
+  // CATEGORY 2: Procedural relationships
+  triggers: {
+    color: "#bb6600",
+    description: "Triggers",
+    arrow: "outgoing",
+  },
+  triggered_by: {
+    color: "#999900",
+    description: "Triggered by",
+    arrow: "incoming",
+  },
+  may_trigger: {
+    color: "#dDAA33",
+    description: "May trigger",
+    arrow: "outgoing",
+  },
+  may_be_triggered_by: {
+    color: "#dDAA33",
+    description: "May be triggered by",
+    arrow: "incoming",
+  },
+
+  // CATEGORY 3: Logical relationships (pairs)
+  affects: {
+    color: "#3498db",
+    description: "Affects",
+    arrow: "outgoing",
+  },
+  affected_by: {
+    color: "#3498db",
+    description: "Affected by",
+    arrow: "incoming",
+  },
+  facilitates: {
+    color: "#2ecc71",
+    description: "Facilitates",
+    arrow: "outgoing",
+  },
+  facilitated_by: {
+    color: "#2ecc71",
+    description: "Facilitated by",
+    arrow: "incoming",
+  },
+
+  // CATEGORY 4: Logical relationships (symmetrical)
+  affinity_with: {
+    color: "#e67e22",
+    description: "Affinity with",
+    arrow: "outgoing",
+  },
+  not_to_be_confused_with: {
+    color: "#e74c3c",
+    description: "Not to be confused with",
+    arrow: "outgoing",
+  },
+  alternative_to: {
+    color: "#9b59b6",
+    description: "Alternative to",
+    arrow: "outgoing",
+  },
+
+  // --- Legacy types from original data, kept for compatibility ---
   supplier: {
     color: "#994400",
-    description: "Supplier",
+    description: "Supplier (Legacy)",
     arrow: "incoming",
   },
   dependency: {
     color: "#444",
-    description: "Dependency",
+    description: "Dependency (Legacy)",
     arrow: "incoming",
   },
   is_fallback_for: {
     color: "#999",
-    description: "Fallback For",
-    arrow: "incoming",
-  },
-  facilitated_by: {
-    color: "#999",
-    description: "Facilitated By",
-    arrow: "incoming",
-  },
-  affected_by: {
-    color: "#999",
-    description: "Affected By",
+    description: "Fallback For (Legacy)",
     arrow: "incoming",
   },
   customer: {
     color: "#bb6600",
-    description: "Customer",
+    description: "Customer (Legacy)",
     arrow: "outgoing",
   },
   enables: {
     color: "#999",
-    description: "Enables",
+    description: "Enables (Legacy)",
     arrow: "outgoing",
   },
   is_required_by: {
     color: "#999",
-    description: "Required By",
-    arrow: "outgoing",
-  },
-  may_be_required_by: {
-    color: "#999",
-    description: "May Be Required By",
-    arrow: "outgoing",
-  },
-  affinity_with: {
-    color: "#999",
-    description: "Affinity",
-    arrow: "outgoing",
-  },
-  not_to_be_confused_with: {
-    color: "#999",
-    description: "Confuse not",
+    description: "Required By (Legacy)",
     arrow: "outgoing",
   },
 };

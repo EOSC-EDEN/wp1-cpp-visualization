@@ -19,10 +19,9 @@ export function generateAndGroupEdges(relations, nodes) {
           edgeTarget = targetNode;
         if (relStyle.arrow === "incoming")
           [edgeSource, edgeTarget] = [targetNode, sourceNode];
-        const isBidirectional = relStyle.arrow === "bidirectional";
-        const edgeKey = isBidirectional
-          ? [sourceId, targetId].sort().join("--")
-          : `${edgeSource.id}--${edgeTarget.id}`;
+        
+        const edgeKey = `${edgeSource.id}--${edgeTarget.id}`;
+        
         const fullEdgeKey = `${edgeKey}::${type}::${sourceId}`;
         if (addedEdges.has(fullEdgeKey)) return;
         addedEdges.add(fullEdgeKey);

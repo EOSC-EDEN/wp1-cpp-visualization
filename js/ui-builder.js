@@ -1,5 +1,3 @@
-// js/ui-builder.js
-
 /**
  * Creates the classification system selector dropdown.
  * @param {object} classifications - The main classification configuration object.
@@ -173,66 +171,96 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
     'Total Visible: <span id="total-relations-count">0</span>';
   filterContainer.appendChild(totalWrapper);
 
-  const relationGroups = [
-    { title: "Trigger events", types: ["triggered_by", "customer"] },
-    { title: "Step-by-step", types: ["supplier"] },
-    { title: "Dependencies", types: ["dependency"] },
-    {
-      title: "Other relations",
-      types: [
-        "is_fallback_for",
-        "facilitated_by",
-        "affected_by",
-        "enables",
-        "is_required_by",
-        "may_be_required_by",
-        "affinity_with",
-        "not_to_be_confused_with",
+  const relationCategories = {
+    "Dependencies": {
+      pairs: [
+        ["requires", "required_by"],
+        ["may_require", "may_be_required_by"],
       ],
     },
-  ];
+    "Procedural relationships": {
+      pairs: [
+        ["triggers", "triggered_by"],
+        ["may_trigger", "may_be_triggered_by"],
+      ],
+    },
+    "Logical relationships": {
+      pairs: [
+        ["affects", "affected_by"],
+        ["facilitates", "facilitated_by"],
+      ],
+    },
+    "Logical relationships (symmetrical)": {
+      singles: ["affinity_with", "not_to_be_confused_with", "alternative_to"],
+    },
+  };
 
-  relationGroups.forEach((group) => {
+  const createCheckbox = (typeKey) => {
+    if (!relationTypes[typeKey]) return null;
+    const info = relationTypes[typeKey];
+
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("filter-option");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = `filter-${typeKey}`;
+    checkbox.value = typeKey;
+    checkbox.checked = true;
+
+    const label = document.createElement("label");
+    label.htmlFor = `filter-${typeKey}`;
+    label.title = info.description;
+
+    const labelText = document.createElement("span");
+    labelText.textContent = info.description;
+
+    const countSpan = document.createElement("span");
+    countSpan.classList.add("relation-count");
+    countSpan.setAttribute("data-count-for", typeKey);
+    countSpan.textContent = " (0)";
+
+    label.appendChild(labelText);
+    label.appendChild(countSpan);
+
+    label.style.color = info.color;
+    label.style.fontWeight = "bold";
+
+    wrapper.appendChild(checkbox);
+    wrapper.appendChild(label);
+    return wrapper;
+  };
+
+  for (const categoryName in relationCategories) {
     const header = document.createElement("h3");
-    header.textContent = group.title;
+    header.textContent = categoryName;
     header.classList.add("filter-header");
     filterContainer.appendChild(header);
 
-    group.types.forEach((typeKey) => {
-      if (!relationTypes[typeKey]) return;
+    const category = relationCategories[categoryName];
 
-      const info = relationTypes[typeKey];
-      const wrapper = document.createElement("div");
-      wrapper.classList.add("filter-option");
+    if (category.pairs) {
+      category.pairs.forEach((pair) => {
+        const pairWrapper = document.createElement("div");
+        pairWrapper.classList.add("filter-option-pair");
 
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.id = `filter-${typeKey}`;
-      checkbox.value = typeKey;
-      checkbox.checked = true;
+        const cb1 = createCheckbox(pair[0]);
+        const cb2 = createCheckbox(pair[1]);
 
-      const label = document.createElement("label");
-      label.htmlFor = `filter-${typeKey}`;
+        if (cb1) pairWrapper.appendChild(cb1);
+        if (cb2) pairWrapper.appendChild(cb2);
 
-      const labelText = document.createElement("span");
-      labelText.textContent = info.description;
+        if (cb1 || cb2) filterContainer.appendChild(pairWrapper);
+      });
+    }
 
-      const countSpan = document.createElement("span");
-      countSpan.classList.add("relation-count");
-      countSpan.setAttribute("data-count-for", typeKey);
-      countSpan.textContent = " (0)";
-
-      label.appendChild(labelText);
-      label.appendChild(countSpan);
-
-      label.style.color = info.color;
-      label.style.fontWeight = "bold";
-
-      wrapper.appendChild(checkbox);
-      wrapper.appendChild(label);
-      filterContainer.appendChild(wrapper);
-    });
-  });
+    if (category.singles) {
+      category.singles.forEach((typeKey) => {
+        const singleWrapper = createCheckbox(typeKey);
+        if (singleWrapper) filterContainer.appendChild(singleWrapper);
+      });
+    }
+  }
 
   filterContainer.addEventListener("change", () => {
     const activeIds = new Set(
