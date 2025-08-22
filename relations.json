@@ -30,7 +30,7 @@
   "CPP-003": {
     "triggered_by": ["CPP-012"],
     "supplier": ["CPP-012", "CPP-001", "CPP-002"],
-    "dependency": ["CPP-001", "CPP-002"],
+    "dependency": ["CPP-001", "CPP-012"],
     "is_fallback_for": [],
     "facilitated_by": [],
     "affected_by": [],
@@ -43,7 +43,7 @@
   },
   "CPP-004": {
     "triggered_by": ["CPP-003"],
-    "supplier": ["CPP-003", "CPP-011"],
+    "supplier": ["CPP-003"],
     "dependency": ["CPP-012", "CPP-003"],
     "is_fallback_for": [],
     "facilitated_by": [],
@@ -102,7 +102,7 @@
   },
   "CPP-006": {
     "triggered_by": ["CPP-011"],
-    "supplier": ["CPP-014"],
+    "supplier": [],
     "dependency": ["CPP-003"],
     "is_fallback_for": [],
     "facilitated_by": [],
