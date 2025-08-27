@@ -1,6 +1,6 @@
 {
   "CPP-001": {
-    "dependency": ["CPP-003"],
+    "dependency": [],
     "required_by": ["CPP-002", "CPP-003", "CPP-006", "CPP-016"],
     "may_require": [],
     "may_be_required_by": [],
