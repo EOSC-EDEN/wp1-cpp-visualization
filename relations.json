@@ -596,9 +596,9 @@
   },
   "CPP-024": {
     "triggered_by": ["CPP-029", "CPP-021"],
-    "supplier": ["CPP-018"],
-    "customer": [],
-    "dependency": ["CPP-018", "CPP-009", "CPP-016"],
+    "supplier": ["CPP-018", "CPP-020"],
+    "customer": ["CPP-013"],
+    "dependency": ["CPP-005", "CPP-009", "CPP-016", "CPP-018"],
     "may_require": [],
     "required_by": [],
     "may_be_required_by": [],
