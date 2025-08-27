@@ -52,20 +52,20 @@
   },
   "CPP-004": {
     "triggered_by": ["CPP-003"],
-    "supplier": ["CPP-003"],
-    "customer": ["CPP-011", "CPP-030"],
-    "dependency": ["CPP-012", "CPP-003"],
+    "supplier": ["CPP-003", "CPP-012"],
+    "customer": [],
+    "dependency": ["CPP-003", "CPP-005", "CPP-012"],
     "may_require": [],
-    "required_by": [],
+    "required_by": ["CPP-013"],
     "may_be_required_by": [],
     "affects": [],
     "affected_by": [],
     "facilitates": [],
     "facilitated_by": [],
-    "affinity_with": ["CPP-002", "CPP-030", "CPP-011"],
-    "not_to_be_confused_with": [],
-    "triggers": [],
-    "alternative_to": []
+    "affinity_with": ["CPP-002", "CPP-011"],
+    "not_to_be_confused_with": ["CPP-007"],
+    "triggers": ["CPP-017", "CPP-030"],
+    "alternative_to": ["CPP-027"]
   },
   "CPP-005": {
     "triggered_by": [
