@@ -19,13 +19,17 @@ export function initializeInteractions(state, onSelectionChange) {
   function clearSelection() {
     if (!selectedNode) return;
     state.svg.classList.remove("graph--dimmed");
-    document.querySelector(".node--selected")?.classList.remove("node--selected");
-    
+    document
+      .querySelector(".node--selected")
+      ?.classList.remove("node--selected");
+
     if (selectedNode.popupElement) {
       selectedNode.popupElement.setAttribute("display", "none");
     }
 
-    document.querySelectorAll(".node--related").forEach((el) => el.classList.remove("node--related"));
+    document
+      .querySelectorAll(".node--related")
+      .forEach((el) => el.classList.remove("node--related"));
     highlightedEdges.forEach((edge) => {
       edgesGroup.appendChild(edge.groupElement);
       edgeLabelsGroup.appendChild(edge.textElement);
@@ -50,7 +54,8 @@ export function initializeInteractions(state, onSelectionChange) {
     node.element.classList.add("node--selected");
 
     if (node.popupElement) {
-      const isFilteredOut = node.element.getAttribute('data-filtered-out') === 'true';
+      const isFilteredOut =
+        node.element.getAttribute("data-filtered-out") === "true";
       if (!isFilteredOut) {
         node.popupElement.setAttribute("display", "block");
       }
@@ -58,7 +63,7 @@ export function initializeInteractions(state, onSelectionChange) {
 
     state.edgeMap.forEach((edge) => {
       if (edge.definedOn !== node) return;
-      if (edge.groupElement.hasAttribute('data-filtered-out')) {
+      if (edge.groupElement.hasAttribute("data-filtered-out")) {
         return;
       }
       highlightedEdges.add(edge);
@@ -150,8 +155,12 @@ export function initializeInteractions(state, onSelectionChange) {
 
   function updatePopupsOnFilterChange() {
     if (selectedNode && selectedNode.popupElement) {
-        const isFilteredOut = selectedNode.element.getAttribute('data-filtered-out') === 'true';
-        selectedNode.popupElement.setAttribute('display', isFilteredOut ? 'none' : 'block');
+      const isFilteredOut =
+        selectedNode.element.getAttribute("data-filtered-out") === "true";
+      selectedNode.popupElement.setAttribute(
+        "display",
+        isFilteredOut ? "none" : "block",
+      );
     }
   }
 

@@ -109,66 +109,93 @@ export function createNodes(nodesData, nodesGroup, cppLinks) {
     const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
     group.setAttribute("class", "node-group");
     group.id = node.id;
-    
-    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+
+    const circle = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle",
+    );
     circle.setAttribute("class", `node-circle node-${node.cluster}`);
     circle.setAttribute("r", nodeRadius);
 
-    const textContainer = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    const textContainer = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "text",
+    );
     textContainer.setAttribute("class", "node-text-container");
-    const tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    const tspan1 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "tspan",
+    );
     tspan1.setAttribute("class", "node-label");
     tspan1.setAttribute("x", 0);
     tspan1.setAttribute("dy", "-0.5em");
     tspan1.textContent = node.label;
-    const tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    const tspan2 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "tspan",
+    );
     tspan2.setAttribute("class", "node-sublabel");
     tspan2.setAttribute("x", 0);
     tspan2.setAttribute("dy", "1.2em");
     tspan2.textContent = node.sub;
     textContainer.appendChild(tspan1);
     textContainer.appendChild(tspan2);
-    
+
     group.appendChild(circle);
     group.appendChild(textContainer);
-    
+
     const link = cppLinks[node.id];
     if (link) {
-      const popupGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      const popupGroup = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "g",
+      );
       popupGroup.setAttribute("class", "popup-group");
       popupGroup.setAttribute("display", "none");
-      
-      const popupWidth = 150;  // Increased size
+
+      const popupWidth = 150; // Increased size
       const popupHeight = 45; // Increased size
       const verticalOffset = -nodeRadius - popupHeight - 15;
 
-      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      const rect = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "rect",
+      );
       rect.setAttribute("class", "popup-rect");
       rect.setAttribute("x", -popupWidth / 2);
       rect.setAttribute("y", verticalOffset);
       rect.setAttribute("width", popupWidth);
       rect.setAttribute("height", popupHeight);
       rect.setAttribute("rx", 6);
-      
-      const connector = document.createElementNS("http://www.w3.org/2000/svg", "path");
+
+      const connector = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path",
+      );
       connector.setAttribute("class", "popup-connector");
       const connectorY = verticalOffset + popupHeight;
-      connector.setAttribute("d", `M -8 ${connectorY} L 8 ${connectorY} L 0 ${connectorY + 8} Z`);
-      
-      const foreignObject = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+      connector.setAttribute(
+        "d",
+        `M -8 ${connectorY} L 8 ${connectorY} L 0 ${connectorY + 8} Z`,
+      );
+
+      const foreignObject = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "foreignObject",
+      );
       foreignObject.setAttribute("x", -popupWidth / 2);
       foreignObject.setAttribute("y", verticalOffset);
       foreignObject.setAttribute("width", popupWidth);
       foreignObject.setAttribute("height", popupHeight);
-      
+
       const linkContainer = document.createElement("div");
       linkContainer.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
-      linkContainer.style.width = '100%';
-      linkContainer.style.height = '100%';
-      linkContainer.style.display = 'flex';
-      linkContainer.style.alignItems = 'center';
-      linkContainer.style.justifyContent = 'center';
-      
+      linkContainer.style.width = "100%";
+      linkContainer.style.height = "100%";
+      linkContainer.style.display = "flex";
+      linkContainer.style.alignItems = "center";
+      linkContainer.style.justifyContent = "center";
+
       const anchor = document.createElement("a");
       anchor.setAttribute("href", link);
       anchor.setAttribute("target", "_blank");
@@ -176,8 +203,8 @@ export function createNodes(nodesData, nodesGroup, cppLinks) {
       anchor.textContent = "Google Doc";
       anchor.setAttribute("class", "popup-link");
 
-      anchor.addEventListener('mousedown', (event) => {
-          event.stopPropagation();
+      anchor.addEventListener("mousedown", (event) => {
+        event.stopPropagation();
       });
 
       linkContainer.appendChild(anchor);

@@ -13,7 +13,7 @@ export function applyCombinedFilter(
   allEdges,
   activeCategoryIds,
   activeRelationTypeIds,
-  isStrictScope
+  isStrictScope,
 ) {
   let finalVisibleNodeIds = new Set();
   let finalVisibleEdgeIds = new Set();
