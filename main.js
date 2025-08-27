@@ -1,5 +1,3 @@
-// main.js
-
 import {
   classifications,
   relationTypes,
@@ -24,8 +22,28 @@ import {
   initializeCategoryFilters,
   initializeRelationFilters,
   initializeGlobalFilters,
+  initializeViewSelector,
 } from "./js/ui-builder.js";
 import { applyCombinedFilter } from "./js/filter.js";
+import { initializeGridView, renderGridView } from "./js/grid-view.js";
+
+// --- GLOBAL STATE ---
+let allNodesData = [];
+let allRelationsData = {};
+let allCppLinks = {};
+let currentView = "graph"; // 'graph' or 'grid'
+let currentClassification = "logical";
+let lastSelectedNodeId = null; // Store selection across re-renders
+
+// --- DOM ELEMENTS ---
+const topFilterBar = document.getElementById("top-filter-bar");
+const sideFilterBar = document.getElementById("side-filter-bar");
+const svgContainer = document.getElementById("svg-container");
+const gridContainer = document.getElementById("grid-container");
+const popupContainer = document.getElementById("grid-popup-container");
+const popupList = document.getElementById("grid-popup-list");
+const popupCloseButton = document.getElementById("grid-popup-close");
+const popupTitle = document.getElementById("grid-popup-title");
 
 function updateVisibleCounts(allEdges) {
   const counts = {};
@@ -65,6 +83,150 @@ function adjustLayout(topBar, sideBar) {
   sideBar.style.height = `calc(100% - ${newHeight}px)`;
 }
 
+// --- GRAPH VIEW FUNCTION ---
+function renderGraphView(classificationKey) {
+  const svg = document.getElementById("cpp-diagram");
+  svg.classList.remove("graph--dimmed");
+
+  document.getElementById("viewport").innerHTML = `
+    <defs id="arrow-defs"></defs>
+    <g id="clusters"></g>
+    <g id="edges"></g>
+    <g id="edge-labels"></g>
+    <g id="nodes"></g>
+    <g id="cluster-labels"></g>
+    <g id="highlighted-edges"></g>
+    <g id="highlighted-edge-labels"></g>
+  `;
+  topFilterBar
+    .querySelectorAll(".filter-group, .global-filter-container")
+    .forEach((el) => el.remove());
+  sideFilterBar.innerHTML = "";
+
+  const nodesGroup = document.getElementById("nodes");
+  const edgesGroup = document.getElementById("edges");
+  const edgeLabelsGroup = document.getElementById("edge-labels");
+  const clustersGroup = document.getElementById("clusters");
+  const clusterLabelsGroup = document.getElementById("cluster-labels");
+  const defs = document.getElementById("arrow-defs");
+
+  const classificationConfig = classifications[classificationKey];
+  const clusterInfo = { ...classificationConfig.info };
+  const clusterKey = classificationConfig.key;
+
+  allNodesData.forEach((node) => {
+    node.cluster = node[clusterKey];
+  });
+
+  Object.values(logicalClusterInfo).forEach((c) => {
+    delete c.nodes;
+    delete c.cx;
+  });
+  Object.values(oaisClusterInfo).forEach((c) => {
+    delete c.nodes;
+    delete c.cx;
+  });
+
+  const nodeMap = new Map(allNodesData.map((n) => [n.id, n]));
+  const { allEdges: edgeMap, parallelEdgeGroups } = generateAndGroupEdges(
+    allRelationsData,
+    nodeMap,
+  );
+
+  createMarkers(defs);
+  createClusters(clusterInfo, allNodesData, clustersGroup, clusterLabelsGroup);
+  createNodes(allNodesData, nodesGroup, allCppLinks);
+  createEdges(edgeMap, edgesGroup, edgeLabelsGroup);
+
+  runClusterLayout(clusterInfo, edgeMap);
+  runNodeLayout(clusterInfo);
+  updateSVGPositions(allNodesData, parallelEdgeGroups, clusterInfo);
+  const viewBox = centerAndZoom(svg, clusterInfo);
+
+  let activeCategoryIds = new Set(Object.keys(clusterInfo));
+  let activeRelationTypeIds = new Set(Object.keys(relationTypes));
+  let globalOptions = { isStrictScope: false };
+
+  const appState = { svg, svgContainer, nodeMap, edgeMap, viewBox };
+
+  const onSelectionChange = (nodeId) => {
+    lastSelectedNodeId = nodeId;
+  };
+
+  const interactions = initializeInteractions(appState, onSelectionChange);
+
+  function updateGraphVisibility() {
+    applyCombinedFilter(
+      allNodesData,
+      edgeMap,
+      activeCategoryIds,
+      activeRelationTypeIds,
+      globalOptions.isStrictScope,
+    );
+    updateVisibleCounts(edgeMap);
+    if (interactions && interactions.updatePopupsOnFilterChange) {
+      interactions.updatePopupsOnFilterChange();
+    }
+  }
+
+  initializeCategoryFilters(clusterInfo, (updatedIds) => {
+    activeCategoryIds = updatedIds;
+    updateGraphVisibility();
+  });
+
+  initializeRelationFilters(relationTypes, (updatedIds) => {
+    activeRelationTypeIds = updatedIds;
+    updateGraphVisibility();
+  });
+
+  initializeGlobalFilters((updatedOptions) => {
+    globalOptions = updatedOptions;
+    updateGraphVisibility();
+  });
+
+  adjustLayout(topFilterBar, sideFilterBar);
+  updateGraphVisibility();
+
+  if (lastSelectedNodeId) {
+    const nodeToReselect = nodeMap.get(lastSelectedNodeId);
+    if (nodeToReselect) {
+      interactions.selectNode(nodeToReselect);
+    }
+  }
+}
+
+// --- MAIN RENDER CONTROLLER ---
+function render() {
+  const classificationSelector = document.getElementById(
+    "classification-selector",
+  )?.parentElement;
+  const sideFilter = document.getElementById("side-filter-bar");
+  const topFilters = topFilterBar.querySelectorAll(
+    ".filter-group, .global-filter-container",
+  );
+
+  if (currentView === "graph") {
+    svgContainer.style.display = "block";
+    gridContainer.style.display = "none";
+    if (sideFilter) sideFilter.style.display = "block";
+    if (classificationSelector) classificationSelector.style.display = "flex";
+    topFilters.forEach((el) => (el.style.display = "flex"));
+    renderGraphView(currentClassification);
+  } else if (currentView === "grid") {
+    svgContainer.style.display = "none";
+    gridContainer.style.display = "block";
+    if (sideFilter) sideFilter.style.display = "none";
+    if (classificationSelector) classificationSelector.style.display = "none";
+    topFilters.forEach((el) => (el.style.display = "none"));
+    topFilterBar
+      .querySelectorAll(".filter-group, .global-filter-container")
+      .forEach((el) => el.remove());
+    renderGridView(gridContainer, allNodesData, allRelationsData);
+  }
+  adjustLayout(topFilterBar, sideFilterBar);
+}
+
+// --- INITIALIZATION ---
 async function init() {
   const [nodesResponse, relationsResponse, linksResponse] = await Promise.all([
     fetch("nodes.json"),
@@ -76,139 +238,47 @@ async function init() {
   if (!relationsResponse.ok) console.error("Failed to load relations.json");
   if (!linksResponse.ok) console.error("Failed to load cpp-links.json");
 
-  const nodesData = await nodesResponse.json();
-  const relationsData = await relationsResponse.json();
-  const cppLinks = await linksResponse.json();
+  allNodesData = await nodesResponse.json();
+  allRelationsData = await relationsResponse.json();
+  allCppLinks = await linksResponse.json();
 
-  const nodeMap = new Map(nodesData.map((n) => [n.id, n]));
-  const { allEdges: edgeMap, parallelEdgeGroups } = generateAndGroupEdges(
-    relationsData,
-    nodeMap,
-  );
+  // Setup UI selectors
+  initializeViewSelector((newView) => {
+    currentView = newView;
+    render();
+  });
 
-  const topFilterBar = document.getElementById("top-filter-bar");
-  const sideFilterBar = document.getElementById("side-filter-bar");
+  initializeClassificationSelector(classifications, (newClassification) => {
+    currentClassification = newClassification;
+    if (currentView === "graph") {
+      render();
+    }
+  });
 
-  // Variable to store the selection state across re-renders
-  let lastSelectedNodeId = null;
+  // Initialize the grid view module with its dependencies
+  initializeGridView({
+    popupContainerEl: popupContainer,
+    popupListEl: popupList,
+    popupTitleEl: popupTitle,
+    cppLinksData: allCppLinks,
+  });
 
-  initializeClassificationSelector(classifications, renderGraph);
+  // Setup popup listeners
+  popupCloseButton.addEventListener("click", () => {
+    popupContainer.classList.add("grid-popup-hidden");
+  });
+  popupContainer.addEventListener("click", (e) => {
+    if (e.target === popupContainer) {
+      popupContainer.classList.add("grid-popup-hidden");
+    }
+  });
 
   const observer = new ResizeObserver(() =>
     adjustLayout(topFilterBar, sideFilterBar),
   );
   observer.observe(topFilterBar);
 
-  function renderGraph(classificationKey) {
-    const svg = document.getElementById("cpp-diagram");
-
-    svg.classList.remove("graph--dimmed");
-
-    document.getElementById("viewport").innerHTML = `
-      <defs id="arrow-defs"></defs>
-      <g id="clusters"></g>
-      <g id="edges"></g>
-      <g id="edge-labels"></g>
-      <g id="nodes"></g>
-      <g id="cluster-labels"></g>
-      <g id="highlighted-edges"></g>
-      <g id="highlighted-edge-labels"></g>
-    `;
-    topFilterBar
-      .querySelectorAll(".filter-group, .global-filter-container")
-      .forEach((el) => el.remove());
-    sideFilterBar.innerHTML = "";
-
-    const svgContainer = document.getElementById("svg-container");
-    const nodesGroup = document.getElementById("nodes");
-    const edgesGroup = document.getElementById("edges");
-    const edgeLabelsGroup = document.getElementById("edge-labels");
-    const clustersGroup = document.getElementById("clusters");
-    const clusterLabelsGroup = document.getElementById("cluster-labels");
-    const defs = document.getElementById("arrow-defs");
-
-    const classificationConfig = classifications[classificationKey];
-    const clusterInfo = { ...classificationConfig.info };
-    const clusterKey = classificationConfig.key;
-
-    nodesData.forEach((node) => {
-      node.cluster = node[clusterKey];
-    });
-
-    Object.values(logicalClusterInfo).forEach((c) => {
-      delete c.nodes;
-      delete c.cx;
-    });
-    Object.values(oaisClusterInfo).forEach((c) => {
-      delete c.nodes;
-      delete c.cx;
-    });
-
-    createMarkers(defs);
-    createClusters(clusterInfo, nodesData, clustersGroup, clusterLabelsGroup);
-    createNodes(nodesData, nodesGroup, cppLinks);
-    createEdges(edgeMap, edgesGroup, edgeLabelsGroup);
-
-    runClusterLayout(clusterInfo, edgeMap);
-    runNodeLayout(clusterInfo);
-    updateSVGPositions(nodesData, parallelEdgeGroups, clusterInfo);
-    const viewBox = centerAndZoom(svg, clusterInfo);
-
-    let activeCategoryIds = new Set(Object.keys(clusterInfo));
-    let activeRelationTypeIds = new Set(Object.keys(relationTypes));
-    let globalOptions = { isStrictScope: false };
-
-    const appState = { svg, svgContainer, nodeMap, edgeMap, viewBox };
-
-    // Callback to update the stored selection state
-    const onSelectionChange = (nodeId) => {
-      lastSelectedNodeId = nodeId;
-    };
-
-    const interactions = initializeInteractions(appState, onSelectionChange);
-
-    function updateGraphVisibility() {
-      applyCombinedFilter(
-        nodesData,
-        edgeMap,
-        activeCategoryIds,
-        activeRelationTypeIds,
-        globalOptions.isStrictScope,
-      );
-      updateVisibleCounts(edgeMap);
-      if (interactions && interactions.updatePopupsOnFilterChange) {
-        interactions.updatePopupsOnFilterChange();
-      }
-    }
-
-    initializeCategoryFilters(clusterInfo, (updatedIds) => {
-      activeCategoryIds = updatedIds;
-      updateGraphVisibility();
-    });
-
-    initializeRelationFilters(relationTypes, (updatedIds) => {
-      activeRelationTypeIds = updatedIds;
-      updateGraphVisibility();
-    });
-
-    initializeGlobalFilters((updatedOptions) => {
-      globalOptions = updatedOptions;
-      updateGraphVisibility();
-    });
-
-    adjustLayout(topFilterBar, sideFilterBar);
-    updateGraphVisibility();
-
-    // Re-select the node if one was selected before the view change
-    if (lastSelectedNodeId) {
-      const nodeToReselect = nodeMap.get(lastSelectedNodeId);
-      if (nodeToReselect) {
-        interactions.selectNode(nodeToReselect);
-      }
-    }
-  }
-
-  renderGraph("logical");
+  render(); // Initial render
 }
 
 init();

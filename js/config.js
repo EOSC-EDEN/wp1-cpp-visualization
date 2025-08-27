@@ -37,17 +37,17 @@ export const nodeRadius = 100;
 export const relationTypes = {
   // Procedural
   triggered_by: {
-    color: "#999900",
+    color: "#33aa33",
     description: "Triggered By",
     arrow: "incoming",
   },
   triggers: {
-    color: "#999900",
+    color: "#55cc55",
     description: "Triggers",
     arrow: "outgoing",
   },
   supplier: {
-    color: "#994400",
+    color: "#772200",
     description: "Supplier",
     arrow: "incoming",
   },
@@ -86,32 +86,32 @@ export const relationTypes = {
 
   // Logical
   affects: {
-    color: "#007799",
+    color: "#999999",
     description: "Affects",
     arrow: "outgoing",
   },
   affected_by: {
-    color: "#007799",
+    color: "#999999",
     description: "Affected By",
     arrow: "incoming",
   },
   facilitates: {
-    color: "#009944",
+    color: "#999999",
     description: "Facilitates",
     arrow: "outgoing",
   },
   facilitated_by: {
-    color: "#009944",
+    color: "#999999",
     description: "Facilitated By",
     arrow: "incoming",
   },
   affinity_with: {
-    color: "#aa88bb",
+    color: "#999999",
     description: "Affinity",
     arrow: "outgoing", // Symmetrical
   },
   not_to_be_confused_with: {
-    color: "#cc6666",
+    color: "#999999",
     description: "Not to be confused with",
     arrow: "outgoing", // Symmetrical
   },

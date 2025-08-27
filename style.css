@@ -56,7 +56,8 @@ body {
   white-space: nowrap;
 }
 
-#classification-selector {
+#classification-selector,
+#view-selector {
   padding: 5px;
   border-radius: 4px;
   border: 1px solid #ced4da;
@@ -180,6 +181,12 @@ body {
   margin: 0;
   vertical-align: middle;
   accent-color: #0a58ca;
+}
+
+#main-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 #svg-container {
@@ -313,6 +320,141 @@ body {
   display: block;
 }
 
+/* --- GRID VIEW STYLES --- */
+#grid-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Essential for fitting to screen */
+}
+
+.grid-table th,
+.grid-table td {
+  border: 1px solid #ccc;
+  padding: 0;
+  text-align: center;
+  font-size: 11px;
+}
+
+.grid-table thead th {
+  background-color: #f8f9fa;
+  height: 120px; /* Space for rotated text */
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.grid-table thead th > div {
+  transform: translateX(10px) rotate(-60deg);
+  transform-origin: bottom left;
+  width: 100px;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.grid-header-source {
+  background-color: #f8f9fa;
+  width: 120px; /* Space for source labels */
+  font-weight: bold;
+}
+
+.grid-table thead th:first-child {
+  vertical-align: bottom;
+  font-weight: bold;
+}
+.grid-table thead th:first-child > div {
+  transform: none;
+  text-align: center;
+  width: auto;
+}
+
+.grid-cell {
+  position: relative;
+}
+.grid-cell[data-has-relation="true"] {
+  cursor: pointer;
+}
+.grid-cell[data-has-relation="true"]:hover {
+  outline: 2px solid #0d6efd;
+  outline-offset: -2px;
+  z-index: 20;
+}
+
+/* --- POPUP STYLES --- */
+#grid-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#grid-popup-container.grid-popup-hidden {
+  display: none;
+}
+
+#grid-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+#grid-popup-content h3 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+#grid-popup-content h3 a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+#grid-popup-content h3 a:hover {
+  text-decoration: underline;
+}
+
+#grid-popup-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+#grid-popup-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+#grid-popup-list li:last-child {
+  border-bottom: none;
+}
+#grid-popup-close {
+  padding: 8px 16px;
+  border: 1px solid #ced4da;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+}
+#grid-popup-close:hover {
+  background-color: #e9ecef;
+}
+
 /* Logical Classification Colors */
 .node-bit-level {
   fill: #9ec5fe;
@@ -365,7 +507,7 @@ body {
   fill: #41464b;
 }
 
-/* OAIS Classification Colors (CORRECTED) */
+/* OAIS Classification Colors */
 .node-oais_cat1 {
   fill: #fff3cd;
   stroke: #ffe69c;
