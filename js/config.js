@@ -35,47 +35,36 @@ export const classifications = {
 export const nodeRadius = 100;
 
 // # ⚡ triggered_by
-// 📦 supplier
-// 📞 customer
-// 🔗 dependency
-// 🤝 affinity_with
-// 📋 is_required_by
-// 📑 may_be_required_by
-// 💭 not_to_be_confused_with
-// 🏣 facilitated_by
-// ➡️ enables
-// 🍂 is_fallback_for
-// 💨 affected_by
+// # 💥 triggers
+// # 📦 supplier
+// # 📞 customer
+// # 🔗 dependency
+// # 📋 required_by
+// # 📑 may_be_required_by
+// # 🤔 may_require
+// # 💨 affected_by
+// # 🌬️ affects
+// # 🤝 affinity_with
+// # 😵 not_to_be_confused_with
+// # 🏣 facilitated_by
+// # ✨ facilitates
+// # 🎭 alternative_to
 
 export const relationTypes = {
+  // Procedural
   triggered_by: {
     color: "#999900",
     description: "Triggered By",
     arrow: "incoming",
   },
+  triggers: {
+    color: "#999900",
+    description: "Triggers",
+    arrow: "outgoing",
+  },
   supplier: {
     color: "#994400",
     description: "Supplier",
-    arrow: "incoming",
-  },
-  dependency: {
-    color: "#444",
-    description: "Dependency",
-    arrow: "incoming",
-  },
-  is_fallback_for: {
-    color: "#999",
-    description: "Fallback For",
-    arrow: "incoming",
-  },
-  facilitated_by: {
-    color: "#999",
-    description: "Facilitated By",
-    arrow: "incoming",
-  },
-  affected_by: {
-    color: "#999",
-    description: "Affected By",
     arrow: "incoming",
   },
   customer: {
@@ -83,29 +72,63 @@ export const relationTypes = {
     description: "Customer",
     arrow: "outgoing",
   },
-  enables: {
-    color: "#999",
-    description: "Enables",
-    arrow: "outgoing",
+  alternative_to: {
+    color: "#aaaaaa",
+    description: "Alternative To",
+    arrow: "outgoing", // Symmetrical
   },
-  is_required_by: {
-    color: "#999",
+
+  // Dependencies
+  dependency: {
+    color: "#444444",
+    description: "Dependency",
+    arrow: "incoming",
+  },
+  required_by: {
+    color: "#444444",
     description: "Required By",
     arrow: "outgoing",
   },
+  may_require: {
+    color: "#888888",
+    description: "May Require",
+    arrow: "incoming",
+  },
   may_be_required_by: {
-    color: "#999",
+    color: "#888888",
     description: "May Be Required By",
     arrow: "outgoing",
   },
-  affinity_with: {
-    color: "#999",
-    description: "Affinity",
+
+  // Logical
+  affects: {
+    color: "#007799",
+    description: "Affects",
     arrow: "outgoing",
   },
-  not_to_be_confused_with: {
-    color: "#999",
-    description: "Confuse not",
+  affected_by: {
+    color: "#007799",
+    description: "Affected By",
+    arrow: "incoming",
+  },
+  facilitates: {
+    color: "#009944",
+    description: "Facilitates",
     arrow: "outgoing",
+  },
+  facilitated_by: {
+    color: "#009944",
+    description: "Facilitated By",
+    arrow: "incoming",
+  },
+  affinity_with: {
+    color: "#aa88bb",
+    description: "Affinity",
+    arrow: "outgoing", // Symmetrical
+  },
+  not_to_be_confused_with: {
+    color: "#cc6666",
+    description: "Not to be confused with",
+    arrow: "outgoing", // Symmetrical
   },
 };

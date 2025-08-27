@@ -174,18 +174,32 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
   filterContainer.appendChild(totalWrapper);
 
   const relationGroups = [
-    { title: "Trigger events", types: ["triggered_by", "customer"] },
-    { title: "Step-by-step", types: ["supplier"] },
-    { title: "Dependencies", types: ["dependency"] },
     {
-      title: "Other relations",
+      title: "Procedural",
       types: [
-        "is_fallback_for",
-        "facilitated_by",
-        "affected_by",
-        "enables",
-        "is_required_by",
+        "triggered_by",
+        "triggers",
+        "supplier",
+        "customer",
+        "alternative_to",
+      ],
+    },
+    {
+      title: "Dependencies",
+      types: [
+        "dependency",
+        "required_by",
+        "may_require",
         "may_be_required_by",
+      ],
+    },
+    {
+      title: "Logical",
+      types: [
+        "affects",
+        "affected_by",
+        "facilitates",
+        "facilitated_by",
         "affinity_with",
         "not_to_be_confused_with",
       ],
