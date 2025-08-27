@@ -1,5 +1,3 @@
-// js/ui-builder.js
-
 /**
  * Creates the classification system selector dropdown.
  * @param {object} classifications - The main classification configuration object.
@@ -37,6 +35,48 @@ export function initializeClassificationSelector(
 
   select.addEventListener("change", (e) => {
     onClassificationChange(e.target.value);
+  });
+}
+
+/**
+ * Creates the view selector dropdown.
+ * @param {function} onViewChange - Callback to run when the selector changes.
+ */
+export function initializeViewSelector(onViewChange) {
+  const filterContainer = document.getElementById("top-filter-bar");
+  if (!filterContainer) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "classification-selector-wrapper";
+  wrapper.style.borderRight = "1px solid #dee2e6";
+
+  const label = document.createElement("label");
+  label.htmlFor = "view-selector";
+  label.textContent = "View:";
+
+  const select = document.createElement("select");
+  select.id = "view-selector";
+
+  const views = {
+    graph: "Graph",
+    grid: "Grid (30 x 30)",
+  };
+
+  for (const key in views) {
+    const option = document.createElement("option");
+    option.value = key;
+    option.textContent = views[key];
+    select.appendChild(option);
+  }
+
+  wrapper.appendChild(label);
+  wrapper.appendChild(select);
+
+  // Prepend it before anything else
+  filterContainer.prepend(wrapper);
+
+  select.addEventListener("change", (e) => {
+    onViewChange(e.target.value);
   });
 }
 
