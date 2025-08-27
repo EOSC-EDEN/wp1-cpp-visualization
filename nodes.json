@@ -1,54 +1,5 @@
 [
   {
-    "id": "CPP-029",
-    "label": "CPP-029",
-    "sub": "Ingest",
-    "logical_cluster": "lifecycle",
-    "oais_cluster": "oais_cat1"
-  },
-  {
-    "id": "CPP-021",
-    "label": "CPP-021",
-    "sub": "AIP Versioning",
-    "logical_cluster": "lifecycle",
-    "oais_cluster": "oais_cat1"
-  },
-  {
-    "id": "CPP-017",
-    "label": "CPP-017",
-    "sub": "Disposal",
-    "logical_cluster": "lifecycle",
-    "oais_cluster": "oais_cat2"
-  },
-  {
-    "id": "CPP-008",
-    "label": "CPP-008",
-    "sub": "File Format Identification",
-    "logical_cluster": "characterisation",
-    "oais_cluster": "oais_cat2"
-  },
-  {
-    "id": "CPP-010",
-    "label": "CPP-010",
-    "sub": "File Format Validation",
-    "logical_cluster": "characterisation",
-    "oais_cluster": "oais_cat2"
-  },
-  {
-    "id": "CPP-007",
-    "label": "CPP-007",
-    "sub": "Virus Scanning",
-    "logical_cluster": "characterisation",
-    "oais_cluster": "oais_cat1"
-  },
-  {
-    "id": "CPP-009",
-    "label": "CPP-009",
-    "sub": "Metadata Extraction",
-    "logical_cluster": "characterisation",
-    "oais_cluster": "oais_cat2"
-  },
-  {
     "id": "CPP-001",
     "label": "CPP-001",
     "sub": "Checksum Generation and Validation",
@@ -77,11 +28,11 @@
     "oais_cluster": "oais_cat4"
   },
   {
-    "id": "CPP-011",
-    "label": "CPP-011",
-    "sub": "Replication",
-    "logical_cluster": "bit-level",
-    "oais_cluster": "oais_cat4"
+    "id": "CPP-005",
+    "label": "CPP-005",
+    "sub": "Identifier Management",
+    "logical_cluster": "dissemination",
+    "oais_cluster": "oais_cat3"
   },
   {
     "id": "CPP-006",
@@ -91,11 +42,53 @@
     "oais_cluster": "oais_cat4"
   },
   {
-    "id": "CPP-030",
-    "label": "CPP-030",
-    "sub": "Refreshment",
+    "id": "CPP-007",
+    "label": "CPP-007",
+    "sub": "Virus Scanning",
+    "logical_cluster": "characterisation",
+    "oais_cluster": "oais_cat1"
+  },
+  {
+    "id": "CPP-008",
+    "label": "CPP-008",
+    "sub": "File Format Identification",
+    "logical_cluster": "characterisation",
+    "oais_cluster": "oais_cat2"
+  },
+  {
+    "id": "CPP-009",
+    "label": "CPP-009",
+    "sub": "Metadata Extraction",
+    "logical_cluster": "characterisation",
+    "oais_cluster": "oais_cat2"
+  },
+  {
+    "id": "CPP-010",
+    "label": "CPP-010",
+    "sub": "File Format Validation",
+    "logical_cluster": "characterisation",
+    "oais_cluster": "oais_cat2"
+  },
+  {
+    "id": "CPP-011",
+    "label": "CPP-011",
+    "sub": "Replication",
     "logical_cluster": "bit-level",
     "oais_cluster": "oais_cat4"
+  },
+  {
+    "id": "CPP-012",
+    "label": "CPP-012",
+    "sub": "Risk Mitigation",
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat5"
+  },
+  {
+    "id": "CPP-013",
+    "label": "CPP-013",
+    "sub": "Object Management Reporting",
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-014",
@@ -103,6 +96,83 @@
     "sub": "File Migration",
     "logical_cluster": "generation",
     "oais_cluster": "oais_cat5"
+  },
+  {
+    "id": "CPP-015",
+    "label": "CPP-015",
+    "sub": "Emulation and Rendering Tools",
+    "logical_cluster": "dissemination",
+    "oais_cluster": "oais_cat6"
+  },
+  {
+    "id": "CPP-016",
+    "label": "CPP-016",
+    "sub": "Metadata Ingest and Management",
+    "logical_cluster": "other",
+    "oais_cluster": "oais_cat3"
+  },
+  {
+    "id": "CPP-017",
+    "label": "CPP-017",
+    "sub": "Disposal",
+    "logical_cluster": "lifecycle",
+    "oais_cluster": "oais_cat2"
+  },
+  {
+    "id": "CPP-018",
+    "label": "CPP-018",
+    "sub": "Community Watch",
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat5"
+  },
+  {
+    "id": "CPP-019",
+    "label": "CPP-019",
+    "sub": "Data Quality Assess",
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat2"
+  },
+  {
+    "id": "CPP-020",
+    "label": "CPP-020",
+    "sub": "Rights Management",
+    "logical_cluster": "other",
+    "oais_cluster": "oais_cat2"
+  },
+  {
+    "id": "CPP-021",
+    "label": "CPP-021",
+    "sub": "AIP Versioning",
+    "logical_cluster": "lifecycle",
+    "oais_cluster": "oais_cat1"
+  },
+  {
+    "id": "CPP-022",
+    "label": "CPP-022",
+    "sub": "Significant Props Def",
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat5"
+  },
+  {
+    "id": "CPP-023",
+    "label": "CPP-023",
+    "sub": "Risk Def. & Extraction",
+    "logical_cluster": "planning",
+    "oais_cluster": "oais_cat5"
+  },
+  {
+    "id": "CPP-024",
+    "label": "CPP-024",
+    "sub": "Discovery",
+    "logical_cluster": "dissemination",
+    "oais_cluster": "oais_cat3"
+  },
+  {
+    "id": "CPP-025",
+    "label": "CPP-025",
+    "sub": "Access",
+    "logical_cluster": "dissemination",
+    "oais_cluster": "oais_cat6"
   },
   {
     "id": "CPP-026",
@@ -126,87 +196,17 @@
     "oais_cluster": "oais_cat6"
   },
   {
-    "id": "CPP-015",
-    "label": "CPP-015",
-    "sub": "Emulation and Rendering Tools",
-    "logical_cluster": "dissemination",
-    "oais_cluster": "oais_cat6"
+    "id": "CPP-029",
+    "label": "CPP-029",
+    "sub": "Ingest",
+    "logical_cluster": "lifecycle",
+    "oais_cluster": "oais_cat1"
   },
   {
-    "id": "CPP-025",
-    "label": "CPP-025",
-    "sub": "Access",
-    "logical_cluster": "dissemination",
-    "oais_cluster": "oais_cat6"
-  },
-  {
-    "id": "CPP-024",
-    "label": "CPP-024",
-    "sub": "Discovery",
-    "logical_cluster": "dissemination",
-    "oais_cluster": "oais_cat3"
-  },
-  {
-    "id": "CPP-005",
-    "label": "CPP-005",
-    "sub": "Identifier Management",
-    "logical_cluster": "dissemination",
-    "oais_cluster": "oais_cat3"
-  },
-  {
-    "id": "CPP-022",
-    "label": "CPP-022",
-    "sub": "Significant Props Def",
-    "logical_cluster": "planning",
-    "oais_cluster": "oais_cat5"
-  },
-  {
-    "id": "CPP-023",
-    "label": "CPP-023",
-    "sub": "Risk Def. & Extraction",
-    "logical_cluster": "planning",
-    "oais_cluster": "oais_cat5"
-  },
-  {
-    "id": "CPP-012",
-    "label": "CPP-012",
-    "sub": "Risk Mitigation",
-    "logical_cluster": "planning",
-    "oais_cluster": "oais_cat5"
-  },
-  {
-    "id": "CPP-018",
-    "label": "CPP-018",
-    "sub": "Community Watch",
-    "logical_cluster": "planning",
-    "oais_cluster": "oais_cat5"
-  },
-  {
-    "id": "CPP-019",
-    "label": "CPP-019",
-    "sub": "Data Quality Assess",
-    "logical_cluster": "planning",
-    "oais_cluster": "oais_cat2"
-  },
-  {
-    "id": "CPP-013",
-    "label": "CPP-013",
-    "sub": "Object Management Reporting",
-    "logical_cluster": "planning",
-    "oais_cluster": "oais_cat2"
-  },
-  {
-    "id": "CPP-016",
-    "label": "CPP-016",
-    "sub": "Metadata Ingest and Management",
-    "logical_cluster": "other",
-    "oais_cluster": "oais_cat3"
-  },
-  {
-    "id": "CPP-020",
-    "label": "CPP-020",
-    "sub": "Rights Management",
-    "logical_cluster": "other",
-    "oais_cluster": "oais_cat2"
+    "id": "CPP-030",
+    "label": "CPP-030",
+    "sub": "Refreshment",
+    "logical_cluster": "bit-level",
+    "oais_cluster": "oais_cat4"
   }
 ]
