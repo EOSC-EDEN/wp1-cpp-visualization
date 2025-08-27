@@ -175,7 +175,7 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
 
   const relationGroups = [
     {
-      title: "Procedural",
+      title: "📋 Procedural",
       types: [
         ["triggered_by", "triggers"],
         ["supplier", "customer"],
@@ -183,14 +183,14 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
       ],
     },
     {
-      title: "Dependencies",
+      title: "🔗 Dependencies",
       types: [
         ["dependency", "required_by"],
         ["may_require", "may_be_required_by"],
       ],
     },
     {
-      title: "Logical",
+      title: "🧩 Logical",
       types: [
         ["affects", "affected_by"],
         ["facilitates", "facilitated_by"],
