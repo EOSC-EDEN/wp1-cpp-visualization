@@ -111,7 +111,7 @@ export const relationTypes = {
     arrow: "outgoing", // Symmetrical
   },
   not_to_be_confused_with: {
-    color: "#ff9999",
+    color: "#bb7777",
     description: "Not to be confused with",
     arrow: "outgoing", // Symmetrical
   },
