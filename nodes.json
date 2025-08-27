@@ -177,7 +177,7 @@
   {
     "id": "CPP-026",
     "label": "CPP-026",
-    "sub": "Normalisation",
+    "sub": "File Normalisation",
     "logical_cluster": "generation",
     "oais_cluster": "oais_cat1"
   },
