@@ -425,10 +425,7 @@
       "CPP-023"
     ],
     "customer": [],
-    "dependency": [
-      "CPP-005",
-      "CPP-025"
-    ],
+    "dependency": ["CPP-005", "CPP-025"],
     "may_require": ["CPP-018"],
     "required_by": ["CPP-016"],
     "may_be_required_by": [],
@@ -444,13 +441,27 @@
   "CPP-018": {
     "triggered_by": [],
     "supplier": [],
-    "customer": [],
+    "customer": [
+      "CPP-008",
+      "CPP-010",
+      "CPP-015",
+      "CPP-016",
+      "CPP-017",
+      "CPP-019",
+      "CPP-020",
+      "CPP-022",
+      "CPP-023",
+      "CPP-024",
+      "CPP-025",
+      "CPP-026",
+      "CPP-028"
+    ],
     "dependency": [],
     "may_require": [],
-    "required_by": [],
-    "may_be_required_by": [],
+    "required_by": ["CPP-012", "CPP-019", "CPP-022", "CPP-023", "CPP-024"],
+    "may_be_required_by": ["CPP-017"],
     "affects": [],
-    "affected_by": [],
+    "affected_by": ["CPP-009"],
     "facilitates": [],
     "facilitated_by": [],
     "affinity_with": [],
