@@ -2,7 +2,7 @@
   {
     "id": "CPP-001",
     "label": "CPP-001",
-    "sub": "Checksum Generation and Validation",
+    "sub": "Checksum Generation and Recording",
     "logical_cluster": "bit-level",
     "oais_cluster": "oais_cat1"
   },
@@ -37,7 +37,7 @@
   {
     "id": "CPP-006",
     "label": "CPP-006",
-    "sub": "Batch Export",
+    "sub": "AIP Batch Export",
     "logical_cluster": "bit-level",
     "oais_cluster": "oais_cat4"
   },
