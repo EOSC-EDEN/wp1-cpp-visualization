@@ -1,7 +1,5 @@
 .
 ├── cpp-links.json
-├── docs
-│   └── import.txt
 ├── favicon.ico
 ├── index.html
 ├── js
@@ -19,4 +17,4 @@
 ├── style.css
 └── tree.txt
 
-2 directories, 17 files
+1 directory, 16 files

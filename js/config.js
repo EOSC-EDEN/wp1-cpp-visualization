@@ -34,22 +34,6 @@ export const classifications = {
 
 export const nodeRadius = 100;
 
-// # ⚡ triggered_by
-// # 💥 triggers
-// # 📦 supplier
-// # 📞 customer
-// # 🔗 dependency
-// # 📋 required_by
-// # 📑 may_be_required_by
-// # 🤔 may_require
-// # 💨 affected_by
-// # 🌬️ affects
-// # 🤝 affinity_with
-// # 😵 not_to_be_confused_with
-// # 🏣 facilitated_by
-// # ✨ facilitates
-// # 🎭 alternative_to
-
 export const relationTypes = {
   // Procedural
   triggered_by: {
