@@ -220,10 +220,9 @@
       "CPP-014",
       "CPP-015",
       "CPP-023",
-      "CPP-027",
-      "CPP-029"
+      "CPP-027"
     ],
-    "may_be_required_by": [],
+    "may_be_required_by": ["CPP-029"],
     "affects": [],
     "affected_by": [],
     "facilitates": [],
