@@ -229,7 +229,7 @@
     "facilitates": [],
     "facilitated_by": [],
     "affinity_with": ["CPP-007"],
-    "not_to_be_confused_with": ["CPP-008"],
+    "not_to_be_confused_with": ["CPP-007", "CPP-008"],
     "triggers": [],
     "alternative_to": []
   },
