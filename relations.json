@@ -288,25 +288,9 @@
     "alternative_to": []
   },
   "CPP-013": {
-    "triggered_by": [
-      "CPP-029",
-      "CPP-025",
-      "CPP-012",
-      "CPP-019",
-      "CPP-003",
-      "CPP-004",
-      "CPP-007",
-      "CPP-008",
-      "CPP-010",
-      "CPP-014",
-      "CPP-015",
-      "CPP-016",
-      "CPP-022",
-      "CPP-027",
-      "CPP-028"
-    ],
-    "supplier": ["CPP-014"],
-    "customer": ["CPP-029", "CPP-025", "CPP-012", "CPP-019"],
+    "triggered_by": ["CPP-029", "CPP-025", "CPP-012", "CPP-019"],
+    "supplier": ["CPP-012", "CPP-019", "CPP-025", "CPP-029"],
+    "customer": ["CPP-012", "CPP-019", "CPP-025", "CPP-029"],
     "dependency": [
       "CPP-003",
       "CPP-004",
@@ -320,7 +304,7 @@
       "CPP-027",
       "CPP-028"
     ],
-    "may_require": [],
+    "may_require": ["CPP-005"],
     "required_by": [],
     "may_be_required_by": [],
     "affects": [],
