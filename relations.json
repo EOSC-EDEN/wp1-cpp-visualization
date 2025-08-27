@@ -17,8 +17,8 @@
     "alternative_to": []
   },
   "CPP-002": {
-    "dependency": ["CPP-029", "CPP-025", "CPP-006", "CPP-011"],
-    "required_by": [],
+    "dependency": ["CPP-001"],
+    "required_by": ["CPP-006", "CPP-025", "CPP-029"],
     "may_require": [],
     "may_be_required_by": [],
     "affects": [],
