@@ -731,7 +731,7 @@
     "triggered_by": ["CPP-004"],
     "supplier": ["CPP-012", "CPP-004"],
     "customer": [],
-    "dependency": ["CPP-004", "CPP-012"],
+    "dependency": ["CPP-012"],
     "may_require": [],
     "required_by": [],
     "may_be_required_by": [],
@@ -739,7 +739,7 @@
     "affected_by": [],
     "facilitates": [],
     "facilitated_by": [],
-    "affinity_with": [],
+    "affinity_with": ["CPP-002"],
     "not_to_be_confused_with": ["CPP-011"],
     "triggers": [],
     "alternative_to": []
