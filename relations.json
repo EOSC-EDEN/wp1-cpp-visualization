@@ -583,7 +583,7 @@
     "customer": ["CPP-009"],
     "dependency": ["CPP-008", "CPP-009", "CPP-010", "CPP-018"],
     "may_require": [],
-    "required_by": ["CPP-012"],
+    "required_by": ["CPP-009", "CPP-012", "CPP-014"],
     "may_be_required_by": [],
     "affects": [],
     "affected_by": [],
