@@ -672,8 +672,8 @@
       "CPP-010"
     ],
     "customer": ["CPP-015"],
-    "dependency": ["CPP-022", "CPP-025", "CPP-029"],
-    "may_require": ["CPP-005"],
+    "dependency": ["CPP-022", "CPP-025"],
+    "may_require": ["CPP-005", "CPP-029"],
     "required_by": ["CPP-013"],
     "may_be_required_by": [],
     "affects": [],
