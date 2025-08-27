@@ -177,34 +177,63 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
     {
       title: "Procedural",
       types: [
-        "triggered_by",
-        "triggers",
-        "supplier",
-        "customer",
-        "alternative_to",
+        ["triggered_by", "triggers"],
+        ["supplier", "customer"],
+        ["alternative_to"],
       ],
     },
     {
       title: "Dependencies",
       types: [
-        "dependency",
-        "required_by",
-        "may_require",
-        "may_be_required_by",
+        ["dependency", "required_by"],
+        ["may_require", "may_be_required_by"],
       ],
     },
     {
       title: "Logical",
       types: [
-        "affects",
-        "affected_by",
-        "facilitates",
-        "facilitated_by",
-        "affinity_with",
-        "not_to_be_confused_with",
+        ["affects", "affected_by"],
+        ["facilitates", "facilitated_by"],
+        ["affinity_with"],
+        ["not_to_be_confused_with"],
       ],
     },
   ];
+
+  // Helper function to generate a single filter option's DOM elements
+  const createOptionDOM = (typeKey) => {
+    if (!relationTypes[typeKey]) return null;
+
+    const info = relationTypes[typeKey];
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("filter-option");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = `filter-${typeKey}`;
+    checkbox.value = typeKey;
+    checkbox.checked = true;
+
+    const label = document.createElement("label");
+    label.htmlFor = `filter-${typeKey}`;
+
+    const labelText = document.createElement("span");
+    labelText.textContent = info.description;
+
+    const countSpan = document.createElement("span");
+    countSpan.classList.add("relation-count");
+    countSpan.setAttribute("data-count-for", typeKey);
+    countSpan.textContent = " (0)";
+
+    label.appendChild(labelText);
+    label.appendChild(countSpan);
+    label.style.color = info.color;
+    label.style.fontWeight = "bold";
+
+    wrapper.appendChild(checkbox);
+    wrapper.appendChild(label);
+    return wrapper;
+  };
 
   relationGroups.forEach((group) => {
     const header = document.createElement("h3");
@@ -212,39 +241,27 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
     header.classList.add("filter-header");
     filterContainer.appendChild(header);
 
-    group.types.forEach((typeKey) => {
-      if (!relationTypes[typeKey]) return;
+    group.types.forEach((typePair) => {
+      // If it's a pair, create a wrapper and add both
+      if (typePair.length === 2) {
+        const pairWrapper = document.createElement("div");
+        pairWrapper.classList.add("filter-option-pair");
 
-      const info = relationTypes[typeKey];
-      const wrapper = document.createElement("div");
-      wrapper.classList.add("filter-option");
+        const option1 = createOptionDOM(typePair[0]);
+        const option2 = createOptionDOM(typePair[1]);
 
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.id = `filter-${typeKey}`;
-      checkbox.value = typeKey;
-      checkbox.checked = true;
-
-      const label = document.createElement("label");
-      label.htmlFor = `filter-${typeKey}`;
-
-      const labelText = document.createElement("span");
-      labelText.textContent = info.description;
-
-      const countSpan = document.createElement("span");
-      countSpan.classList.add("relation-count");
-      countSpan.setAttribute("data-count-for", typeKey);
-      countSpan.textContent = " (0)";
-
-      label.appendChild(labelText);
-      label.appendChild(countSpan);
-
-      label.style.color = info.color;
-      label.style.fontWeight = "bold";
-
-      wrapper.appendChild(checkbox);
-      wrapper.appendChild(label);
-      filterContainer.appendChild(wrapper);
+        if (option1 && option2) {
+          pairWrapper.appendChild(option1);
+          pairWrapper.appendChild(option2);
+          filterContainer.appendChild(pairWrapper);
+        }
+      } else {
+        // Otherwise, create a single option
+        const singleOption = createOptionDOM(typePair[0]);
+        if (singleOption) {
+          filterContainer.appendChild(singleOption);
+        }
+      }
     });
   });
 

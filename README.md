@@ -30,7 +30,6 @@
 | `customer`        | `supplier`           | Bidirectional | The current CPP provides as output of one of its steps an input for the related CPP.      |
 | `alternative_to`  | -                    | Symmetrical   | Under certain circumstances, the related CPP may be performed instead of the current CPP. |
 
-
 ... this is documented in the following format (example):
 
 ```bash

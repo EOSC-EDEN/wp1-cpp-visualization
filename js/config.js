@@ -96,7 +96,7 @@ export const relationTypes = {
   },
   may_be_required_by: {
     color: "#888888",
-    description: "May Be Required By",
+    description: "May Be Req. By",
     arrow: "outgoing",
   },
 
