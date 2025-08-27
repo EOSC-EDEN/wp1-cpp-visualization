@@ -212,8 +212,9 @@ body {
   fill: #111;
 }
 .node-sublabel {
-  font-size: 30px;
+  font-size: 25px;
   fill: #333;
+  margin-top: 50px;
 }
 
 .popup-group {
@@ -314,31 +315,31 @@ body {
 
 /* Logical Classification Colors */
 .node-bit-level {
-  fill: #cfe2ff;
+  fill: #9ec5fe;
   stroke: #9ec5fe;
 }
 .node-planning {
-  fill: #d1e7dd;
+  fill: #a3cfbb;
   stroke: #a3cfbb;
 }
 .node-characterisation {
-  fill: #f8d7da;
+  fill: #f1aeb5;
   stroke: #f1aeb5;
 }
 .node-generation {
-  fill: #fff3cd;
+  fill: #ffe69c;
   stroke: #ffe69c;
 }
 .node-dissemination {
-  fill: #cff4fc;
+  fill: #9eeaf9;
   stroke: #9eeaf9;
 }
 .node-lifecycle {
-  fill: #e2d9f3;
+  fill: #c0b6e0;
   stroke: #c0b6e0;
 }
 .node-other {
-  fill: #e9ecef;
+  fill: #d3d7db;
   stroke: #d3d7db;
 }
 

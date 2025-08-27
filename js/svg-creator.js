@@ -2,6 +2,60 @@
 
 import { relationTypes, nodeRadius } from "./config.js";
 
+/**
+ * Creates a sublabel, automatically splitting it into two lines if it's too long.
+ * @param {SVGTextElement} parentTextContainer - The parent <text> element.
+ * @param {string} subText - The text content for the sublabel.
+ */
+function createWrappedSublabel(parentTextContainer, subText) {
+  if (!subText) {
+    return; // Do nothing if there's no sublabel text
+  }
+
+  const maxLength = 22; // Max characters before attempting to wrap
+  const lineHeight = "1.2em"; // Vertical distance between wrapped lines
+
+  // If the text is short enough, create a single tspan
+  if (subText.length <= maxLength) {
+    const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    tspan.setAttribute("class", "node-sublabel");
+    tspan.setAttribute("x", 0);
+    tspan.setAttribute("dy", "1.5em"); // Initial offset from the main label
+    tspan.textContent = subText;
+    parentTextContainer.appendChild(tspan);
+    return;
+  }
+
+  // If the text is long, find a good split point and create two tspans
+  let splitPoint = subText.lastIndexOf(" ", maxLength);
+
+  // If no space is found before maxLength, force a split at maxLength
+  if (splitPoint === -1) {
+    splitPoint = maxLength;
+  }
+
+  const line1 = subText.substring(0, splitPoint).trim();
+  const line2 = subText.substring(splitPoint).trim();
+
+  // Create the first line
+  const tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+  tspan1.setAttribute("class", "node-sublabel");
+  tspan1.setAttribute("x", 0);
+  tspan1.setAttribute("dy", "1.5em"); // Initial offset from the main label
+  tspan1.textContent = line1;
+
+  // Create the second line
+  const tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+  tspan2.setAttribute("class", "node-sublabel");
+  tspan2.setAttribute("x", 0);
+  tspan2.setAttribute("dy", lineHeight); // Relative offset from the first sublabel line
+  tspan2.textContent = line2;
+
+  parentTextContainer.appendChild(tspan1);
+  parentTextContainer.appendChild(tspan2);
+}
+
+
 export function createMarkers(defs) {
   for (const type in relationTypes) {
     const rel = relationTypes[type];
@@ -122,6 +176,8 @@ export function createNodes(nodesData, nodesGroup, cppLinks) {
       "text",
     );
     textContainer.setAttribute("class", "node-text-container");
+    
+    // Create the main label tspan
     const tspan1 = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "tspan",
@@ -130,16 +186,10 @@ export function createNodes(nodesData, nodesGroup, cppLinks) {
     tspan1.setAttribute("x", 0);
     tspan1.setAttribute("dy", "-0.5em");
     tspan1.textContent = node.label;
-    const tspan2 = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "tspan",
-    );
-    tspan2.setAttribute("class", "node-sublabel");
-    tspan2.setAttribute("x", 0);
-    tspan2.setAttribute("dy", "1.2em");
-    tspan2.textContent = node.sub;
     textContainer.appendChild(tspan1);
-    textContainer.appendChild(tspan2);
+
+    // --- MODIFIED: Use the helper function for the sublabel ---
+    createWrappedSublabel(textContainer, node.sub);
 
     group.appendChild(circle);
     group.appendChild(textContainer);
