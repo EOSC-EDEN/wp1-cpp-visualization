@@ -367,11 +367,11 @@
   "CPP-016": {
     "triggered_by": [
       "CPP-001",
-      "CPP-002",
       "CPP-003",
       "CPP-005",
       "CPP-008",
       "CPP-009",
+      "CPP-012",
       "CPP-017",
       "CPP-020"
     ],
@@ -381,10 +381,11 @@
       "CPP-005",
       "CPP-008",
       "CPP-009",
+      "CPP-012",
       "CPP-017",
       "CPP-020"
     ],
-    "customer": [],
+    "customer": ["CPP-021"],
     "dependency": [
       "CPP-001",
       "CPP-003",
@@ -395,13 +396,13 @@
       "CPP-020"
     ],
     "may_require": [],
-    "required_by": [],
+    "required_by": ["CPP-013", "CPP-024", "CPP-029"],
     "may_be_required_by": [],
     "affects": [],
     "affected_by": [],
     "facilitates": [],
     "facilitated_by": [],
-    "affinity_with": [],
+    "affinity_with": ["CPP-022"],
     "not_to_be_confused_with": [],
     "triggers": [],
     "alternative_to": []
