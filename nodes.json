@@ -23,14 +23,14 @@
   {
     "id": "CPP-008",
     "label": "CPP-008",
-    "sub": "Format ID",
+    "sub": "File Format Identification",
     "logical_cluster": "characterisation",
     "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-010",
     "label": "CPP-010",
-    "sub": "Format Validation",
+    "sub": "File Format Validation",
     "logical_cluster": "characterisation",
     "oais_cluster": "oais_cat2"
   },
@@ -51,7 +51,7 @@
   {
     "id": "CPP-001",
     "label": "CPP-001",
-    "sub": "Checksum Gen & Rec",
+    "sub": "Checksum Generation and Validation",
     "logical_cluster": "bit-level",
     "oais_cluster": "oais_cat1"
   },
@@ -72,7 +72,7 @@
   {
     "id": "CPP-004",
     "label": "CPP-004",
-    "sub": "Data Corruption Mgmt",
+    "sub": "Data Corruption Management",
     "logical_cluster": "bit-level",
     "oais_cluster": "oais_cat4"
   },
@@ -100,7 +100,7 @@
   {
     "id": "CPP-014",
     "label": "CPP-014",
-    "sub": "File Format Migration",
+    "sub": "File Migration",
     "logical_cluster": "generation",
     "oais_cluster": "oais_cat5"
   },
@@ -121,14 +121,14 @@
   {
     "id": "CPP-028",
     "label": "CPP-028",
-    "sub": "Derivative Copies",
+    "sub": "Creation of Derivatives",
     "logical_cluster": "generation",
     "oais_cluster": "oais_cat6"
   },
   {
     "id": "CPP-015",
     "label": "CPP-015",
-    "sub": "Emulation/Rendering",
+    "sub": "Emulation and Rendering Tools",
     "logical_cluster": "dissemination",
     "oais_cluster": "oais_cat6"
   },
@@ -149,7 +149,7 @@
   {
     "id": "CPP-005",
     "label": "CPP-005",
-    "sub": "ID Mgmt.",
+    "sub": "Identifier Management",
     "logical_cluster": "dissemination",
     "oais_cluster": "oais_cat3"
   },
@@ -170,7 +170,7 @@
   {
     "id": "CPP-012",
     "label": "CPP-012",
-    "sub": "Preservation Risk Mit",
+    "sub": "Risk Mitigation",
     "logical_cluster": "planning",
     "oais_cluster": "oais_cat5"
   },
@@ -191,14 +191,14 @@
   {
     "id": "CPP-013",
     "label": "CPP-013",
-    "sub": "Object Mgmt Reporting",
+    "sub": "Object Management Reporting",
     "logical_cluster": "planning",
     "oais_cluster": "oais_cat2"
   },
   {
     "id": "CPP-016",
     "label": "CPP-016",
-    "sub": "Metadata Ingest/Mgmt",
+    "sub": "Metadata Ingest and Management",
     "logical_cluster": "other",
     "oais_cluster": "oais_cat3"
   },
