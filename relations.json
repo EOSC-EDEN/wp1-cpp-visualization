@@ -125,10 +125,10 @@
     "alternative_to": []
   },
   "CPP-006": {
-    "triggered_by": ["CPP-011"],
+    "triggered_by": [],
     "supplier": [],
     "customer": [],
-    "dependency": ["CPP-003"],
+    "dependency": ["CPP-001", "CPP-002"],
     "may_require": [],
     "required_by": [],
     "may_be_required_by": [],
@@ -136,9 +136,9 @@
     "affected_by": ["CPP-021"],
     "facilitates": [],
     "facilitated_by": [],
-    "affinity_with": [],
+    "affinity_with": ["CPP-011"],
     "not_to_be_confused_with": ["CPP-017", "CPP-025"],
-    "triggers": [],
+    "triggers": ["CPP-002"],
     "alternative_to": []
   },
   "CPP-007": {
