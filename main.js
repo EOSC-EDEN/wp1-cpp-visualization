@@ -1,6 +1,11 @@
 // main.js
 
-import { classifications, relationTypes, logicalClusterInfo, oaisClusterInfo } from "./js/config.js";
+import {
+  classifications,
+  relationTypes,
+  logicalClusterInfo,
+  oaisClusterInfo,
+} from "./js/config.js";
 import {
   createMarkers,
   createClusters,
@@ -83,9 +88,9 @@ async function init() {
 
   const topFilterBar = document.getElementById("top-filter-bar");
   const sideFilterBar = document.getElementById("side-filter-bar");
-  
+
   // Variable to store the selection state across re-renders
-  let lastSelectedNodeId = null; 
+  let lastSelectedNodeId = null;
 
   initializeClassificationSelector(classifications, renderGraph);
 
@@ -96,7 +101,7 @@ async function init() {
 
   function renderGraph(classificationKey) {
     const svg = document.getElementById("cpp-diagram");
-    
+
     svg.classList.remove("graph--dimmed");
 
     document.getElementById("viewport").innerHTML = `
@@ -130,8 +135,14 @@ async function init() {
       node.cluster = node[clusterKey];
     });
 
-    Object.values(logicalClusterInfo).forEach(c => { delete c.nodes; delete c.cx; });
-    Object.values(oaisClusterInfo).forEach(c => { delete c.nodes; delete c.cx; });
+    Object.values(logicalClusterInfo).forEach((c) => {
+      delete c.nodes;
+      delete c.cx;
+    });
+    Object.values(oaisClusterInfo).forEach((c) => {
+      delete c.nodes;
+      delete c.cx;
+    });
 
     createMarkers(defs);
     createClusters(clusterInfo, nodesData, clustersGroup, clusterLabelsGroup);
@@ -148,7 +159,7 @@ async function init() {
     let globalOptions = { isStrictScope: false };
 
     const appState = { svg, svgContainer, nodeMap, edgeMap, viewBox };
-    
+
     // Callback to update the stored selection state
     const onSelectionChange = (nodeId) => {
       lastSelectedNodeId = nodeId;
@@ -187,7 +198,7 @@ async function init() {
 
     adjustLayout(topFilterBar, sideFilterBar);
     updateGraphVisibility();
-    
+
     // Re-select the node if one was selected before the view change
     if (lastSelectedNodeId) {
       const nodeToReselect = nodeMap.get(lastSelectedNodeId);
