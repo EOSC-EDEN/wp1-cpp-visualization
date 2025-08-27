@@ -47,12 +47,12 @@ export const relationTypes = {
     arrow: "outgoing",
   },
   supplier: {
-    color: "#772200",
+    color: "#3333aa",
     description: "Supplier",
     arrow: "incoming",
   },
   customer: {
-    color: "#bb6600",
+    color: "#5555cc",
     description: "Customer",
     arrow: "outgoing",
   },
@@ -106,12 +106,12 @@ export const relationTypes = {
     arrow: "incoming",
   },
   affinity_with: {
-    color: "#999999",
+    color: "#9999ff",
     description: "Affinity",
     arrow: "outgoing", // Symmetrical
   },
   not_to_be_confused_with: {
-    color: "#999999",
+    color: "#ff9999",
     description: "Not to be confused with",
     arrow: "outgoing", // Symmetrical
   },
