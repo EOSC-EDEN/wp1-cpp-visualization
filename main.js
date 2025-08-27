@@ -25,6 +25,7 @@ import {
   initializeViewSelector,
 } from "./js/ui-builder.js";
 import { applyCombinedFilter } from "./js/filter.js";
+import { initializeGridView, renderGridView } from "./js/grid-view.js";
 
 // --- GLOBAL STATE ---
 let allNodesData = [];
@@ -80,145 +81,6 @@ function adjustLayout(topBar, sideBar) {
   document.body.style.paddingTop = `${newHeight}px`;
   sideBar.style.top = `${newHeight}px`;
   sideBar.style.height = `calc(100% - ${newHeight}px)`;
-}
-
-// --- GRID VIEW FUNCTIONS ---
-
-/**
- * Generates the correct CSS background for a grid cell based on the number of relations.
- * @param {string[]} relationKeys - Array of relation type keys (e.g., ['supplier', 'dependency']).
- * @returns {string} - A CSS background value.
- */
-function getCellBackground(relationKeys) {
-  const colors = relationKeys
-    .map((key) => relationTypes[key]?.color || "#cccccc")
-    .slice(0, 4); // Limit to a max of 4 colors for the pattern
-
-  switch (colors.length) {
-    case 0:
-      return "";
-    case 1:
-      // This is handled by backgroundColor directly, but return for consistency.
-      return colors[0];
-    case 2:
-      // Diagonal split
-      return `linear-gradient(135deg, ${colors[0]} 50%, ${colors[1]} 50%)`;
-    case 3:
-      // Three vertical stripes
-      return `linear-gradient(to right, ${colors[0]} 33.3%, ${colors[1]} 33.3% 66.6%, ${colors[2]} 66.6%)`;
-    case 4:
-    default:
-      // 2x2 quadrant
-      return `linear-gradient(to right, ${colors[0]} 50%, ${colors[1]} 50%) 0 0 / 100% 50% no-repeat, 
-              linear-gradient(to right, ${colors[2]} 50%, ${colors[3]} 50%) 0 100% / 100% 50% no-repeat`;
-  }
-}
-
-function showGridPopup(source, target, relations) {
-  popupList.innerHTML = "";
-
-  // Create source link if it exists, otherwise just show the label
-  const sourceLink = allCppLinks[source.id]
-    ? `<a href="${allCppLinks[source.id]}" target="_blank" rel="noopener noreferrer">${source.label}</a>`
-    : `<span>${source.label}</span>`;
-
-  // Create target link if it exists, otherwise just show the label
-  const targetLink = allCppLinks[target.id]
-    ? `<a href="${allCppLinks[target.id]}" target="_blank" rel="noopener noreferrer">${target.label}</a>`
-    : `<span>${target.label}</span>`;
-
-  // Set the title with the new HTML, including the links
-  popupTitle.innerHTML = `Relations: ${sourceLink} → ${targetLink}`;
-
-  if (relations.length > 0) {
-    relations.forEach((relType) => {
-      const li = document.createElement("li");
-      const info = relationTypes[relType];
-      if (info) {
-        li.textContent = info.description;
-        li.style.color = info.color;
-        li.style.fontWeight = "bold";
-      } else {
-        li.textContent = relType;
-      }
-      popupList.appendChild(li);
-    });
-  } else {
-    const li = document.createElement("li");
-    li.textContent = "No direct relations defined.";
-    popupList.appendChild(li);
-  }
-
-  popupContainer.classList.remove("grid-popup-hidden");
-}
-
-function renderGridView(nodes, relations) {
-  gridContainer.innerHTML = ""; // Clear previous grid
-
-  const sortedNodes = [...nodes].sort((a, b) =>
-    a.id.localeCompare(b.id, undefined, { numeric: true }),
-  );
-
-  const table = document.createElement("table");
-  table.className = "grid-table";
-
-  // --- Create Headers ---
-  const thead = table.createTHead();
-  const headerRow = thead.insertRow();
-  const cornerCell = document.createElement("th");
-  const cornerDiv = document.createElement("div");
-  cornerDiv.textContent = "Source ↓ / Target →";
-  cornerCell.appendChild(cornerDiv);
-  headerRow.appendChild(cornerCell);
-
-  sortedNodes.forEach((targetNode) => {
-    const th = document.createElement("th");
-    const div = document.createElement("div"); // Wrapper for rotation
-    div.textContent = targetNode.label;
-    th.appendChild(div);
-    headerRow.appendChild(th);
-  });
-
-  // --- Create Body Rows ---
-  const tbody = table.createTBody();
-  sortedNodes.forEach((sourceNode) => {
-    const row = tbody.insertRow();
-    const sourceHeaderCell = document.createElement("th");
-    sourceHeaderCell.className = "grid-header-source";
-    sourceHeaderCell.textContent = sourceNode.label;
-    row.appendChild(sourceHeaderCell);
-
-    sortedNodes.forEach((targetNode) => {
-      const cell = row.insertCell();
-      cell.className = "grid-cell";
-
-      const foundRelations = [];
-      if (relations[sourceNode.id]) {
-        for (const relType in relations[sourceNode.id]) {
-          if (relations[sourceNode.id][relType]?.includes(targetNode.id)) {
-            foundRelations.push(relType);
-          }
-        }
-      }
-
-      if (foundRelations.length > 0) {
-        cell.dataset.hasRelation = "true"; // For hover effect and cursor
-
-        // Apply color coding
-        if (foundRelations.length === 1) {
-          cell.style.backgroundColor = getCellBackground(foundRelations);
-        } else {
-          cell.style.background = getCellBackground(foundRelations);
-        }
-
-        cell.addEventListener("click", () => {
-          showGridPopup(sourceNode, targetNode, foundRelations);
-        });
-      }
-    });
-  });
-
-  gridContainer.appendChild(table);
 }
 
 // --- GRAPH VIEW FUNCTION ---
@@ -359,7 +221,7 @@ function render() {
     topFilterBar
       .querySelectorAll(".filter-group, .global-filter-container")
       .forEach((el) => el.remove());
-    renderGridView(allNodesData, allRelationsData);
+    renderGridView(gridContainer, allNodesData, allRelationsData);
   }
   adjustLayout(topFilterBar, sideFilterBar);
 }
@@ -391,6 +253,14 @@ async function init() {
     if (currentView === "graph") {
       render();
     }
+  });
+
+  // Initialize the grid view module with its dependencies
+  initializeGridView({
+    popupContainerEl: popupContainer,
+    popupListEl: popupList,
+    popupTitleEl: popupTitle,
+    cppLinksData: allCppLinks,
   });
 
   // Setup popup listeners
