@@ -154,7 +154,12 @@ export function createEdges(edgeMap, edgesGroup, edgeLabelsGroup) {
       "href",
       "#" + path.id,
     );
-    textPath.textContent = relationTypes[edge.type].description;
+
+    // Get the configuration for the current relation type
+    const relationInfo = relationTypes[edge.type];
+    // Use arrowLabel if it exists, otherwise fall back to the description
+    textPath.textContent = relationInfo.arrowLabel || relationInfo.description;
+
     textPath.setAttribute("startOffset", "50%");
     text.appendChild(textPath);
     edgeGroup.appendChild(path);

@@ -33,7 +33,6 @@ export const classifications = {
 };
 
 export const nodeRadius = 100;
-
 export const relationTypes = {
   // Procedural
   triggered_by: {
@@ -113,6 +112,7 @@ export const relationTypes = {
   not_to_be_confused_with: {
     color: "#bb7777",
     description: "Not to be confused with",
+    arrowLabel: "NTBCW", // Use this for the arrow's text
     arrow: "outgoing", // Symmetrical
   },
 };
