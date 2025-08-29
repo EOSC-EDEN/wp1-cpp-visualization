@@ -170,7 +170,7 @@
   {
     "id": "CPP-025",
     "label": "CPP-025",
-    "sub": "Enables Access",
+    "sub": "Enabling Access",
     "logical_cluster": "dissemination",
     "oais_cluster": "oais_cat6"
   },
