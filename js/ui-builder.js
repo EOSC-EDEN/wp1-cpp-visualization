@@ -225,7 +225,7 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
     {
       title: "🔗 Dependencies",
       types: [
-        ["dependency", "required_by"],
+        ["requires", "required_by"],
         ["may_require", "may_be_required_by"],
       ],
     },
