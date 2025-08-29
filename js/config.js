@@ -62,9 +62,9 @@ export const relationTypes = {
   },
 
   // Dependencies
-  dependency: {
+  requires: {
     color: "#444444",
-    description: "Dependency",
+    description: "Requires",
     arrow: "incoming",
   },
   required_by: {

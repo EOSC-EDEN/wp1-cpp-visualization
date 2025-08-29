@@ -9,7 +9,7 @@
 
 | Main Relationship         | Inverse Relationship | Type          | Description                                                                                                         |
 | :------------------------ | :------------------- | :------------ | :------------------------------------------------------------------------------------------------------------------ |
-| `dependency` ("requires") | `required_by`        | Bidirectional | Hard dependency - related CPP must have been executed before or during the current CPP - to enable its performance. |
+| `requires` ("dependency") | `required_by`        | Bidirectional | Hard dependency - related CPP must have been executed before or during the current CPP - to enable its performance. |
 | `may_require`             | `may_be_required_by` | Bidirectional | Same as the hard dependency, but only applies to certain circumstances (soft dependency)                            |
 
 ### Logical relationships
@@ -35,7 +35,7 @@
 ```bash
 {
   "CPP-001": {
-    "dependency": ["CPP-003"],
+    "requires": ["CPP-003"],
     "required_by": [],
     "may_require": [],
     "may_be_required_by": [],

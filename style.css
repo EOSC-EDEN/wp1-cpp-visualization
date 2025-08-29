@@ -509,45 +509,45 @@ body {
 
 /* OAIS Classification Colors */
 .node-oais_cat1 {
-  fill: #fff3cd;
-  stroke: #ffe69c;
+  fill: #F39;
+  stroke: #F39;
 } /* Ingest - Yellow */
 .node-oais_cat2 {
-  fill: #f8d7da;
-  stroke: #f1aeb5;
+  fill: #F39;
+  stroke: #F39;
 } /* Admin - Red */
 .node-oais_cat3 {
-  fill: #cfe2ff;
-  stroke: #9ec5fe;
+  fill: #F39;
+  stroke: #F39;
 } /* Data Mgmt - Blue */
 .node-oais_cat4 {
-  fill: #e2d9f3;
-  stroke: #c0b6e0;
+  fill: #F39;
+  stroke: #F39;
 } /* Storage - Purple */
 .node-oais_cat5 {
-  fill: #d1e7dd;
-  stroke: #a3cfbb;
+  fill: #F39;
+  stroke: #F39;
 } /* Planning - Green */
 .node-oais_cat6 {
-  fill: #cff4fc;
-  stroke: #9eeaf9;
+  fill: #F39;
+  stroke: #F39;
 } /* Access - Cyan */
 
 .cluster-label-oais_cat1 {
-  fill: #664d03;
+  fill: #F39;
 } /* Ingest - Yellow */
 .cluster-label-oais_cat2 {
-  fill: #842029;
+  fill: #F39;
 }
 .cluster-label-oais_cat3 {
-  fill: #0a58ca;
+  fill: #F39;
 }
 .cluster-label-oais_cat4 {
-  fill: #49247a;
+  fill: #F39;
 }
 .cluster-label-oais_cat5 {
-  fill: #0f5132;
+  fill: #F39;
 } /* Planning - Green */
 .cluster-label-oais_cat6 {
-  fill: #055160;
+  fill: #F39;
 }
