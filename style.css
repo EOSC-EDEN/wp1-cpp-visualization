@@ -508,46 +508,46 @@ body {
 }
 
 /* OAIS Classification Colors */
-.node-oais_cat1 {
-  fill: #F39;
-  stroke: #F39;
-} /* Ingest - Yellow */
-.node-oais_cat2 {
-  fill: #F39;
-  stroke: #F39;
-} /* Admin - Red */
-.node-oais_cat3 {
-  fill: #F39;
-  stroke: #F39;
-} /* Data Mgmt - Blue */
-.node-oais_cat4 {
-  fill: #F39;
-  stroke: #F39;
-} /* Storage - Purple */
-.node-oais_cat5 {
-  fill: #F39;
-  stroke: #F39;
-} /* Planning - Green */
-.node-oais_cat6 {
-  fill: #F39;
-  stroke: #F39;
-} /* Access - Cyan */
+.node-preservationPlanning {
+  fill: #a3cfbb; /* SHARED: Same as Logical "Planning" */
+  stroke: #a3cfbb;
+}
+.node-ingest {
+  fill: #fdbb84; /* UNIQUE: Orange */
+  stroke: #fdbb84;
+}
+.node-administration {
+  fill: #8dd3c7; /* UNIQUE: Teal */
+  stroke: #8dd3c7;
+}
+.node-dataManagement {
+  fill: #fccde5; /* UNIQUE: Pink */
+  stroke: #fccde5;
+}
+.node-storage {
+  fill: #f4d1a9; /* UNIQUE: Tan */
+  stroke: #f4d1a9;
+}
+.node-access {
+  fill: #b3cde3; /* UNIQUE: Light Blue */
+  stroke: #b3cde3;
+}
 
-.cluster-label-oais_cat1 {
-  fill: #F39;
-} /* Ingest - Yellow */
-.cluster-label-oais_cat2 {
-  fill: #F39;
+.cluster-label-preservationPlanning {
+  fill: #0f5132; /* SHARED: Same as Logical "Planning" */
 }
-.cluster-label-oais_cat3 {
-  fill: #F39;
+.cluster-label-ingest {
+  fill: #a15200; /* UNIQUE: Dark Orange */
 }
-.cluster-label-oais_cat4 {
-  fill: #F39;
+.cluster-label-administration {
+  fill: #00594e; /* UNIQUE: Dark Teal */
 }
-.cluster-label-oais_cat5 {
-  fill: #F39;
-} /* Planning - Green */
-.cluster-label-oais_cat6 {
-  fill: #F39;
+.cluster-label-dataManagement {
+  fill: #8e0051; /* UNIQUE: Magenta */
+}
+.cluster-label-storage {
+  fill: #8c5a1a; /* UNIQUE: Brown */
+}
+.cluster-label-access {
+  fill: #004b80; /* UNIQUE: Dark Blue */
 }

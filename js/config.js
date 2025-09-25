@@ -11,12 +11,12 @@ export const logicalClusterInfo = {
 };
 
 export const oaisClusterInfo = {
-  oais_cat1: { label: "Ingest" },
-  oais_cat2: { label: "Administration" },
-  oais_cat3: { label: "Data Management" },
-  oais_cat4: { label: "Storage" },
-  oais_cat5: { label: "Preservation Planning" },
-  oais_cat6: { label: "Access" },
+  ingest: { label: "Ingest" },
+  administration: { label: "Administration" },
+  dataManagement: { label: "Data Management" },
+  storage: { label: "Storage" },
+  preservationPlanning: { label: "Preservation Planning" },
+  access: { label: "Access" },
 };
 
 export const classifications = {
