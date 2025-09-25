@@ -508,46 +508,46 @@ body {
 }
 
 /* OAIS Classification Colors */
-.node-oais_cat1 {
-  fill: #9ec5fe;
-  stroke: #9ec5fe;
-}
-.node-oais_cat2 {
-  fill: #a3cfbb;
+.node-preservationPlanning {
+  fill: #a3cfbb; /* SHARED: Same as Logical "Planning" */
   stroke: #a3cfbb;
 }
-.node-oais_cat3 {
-  fill: #f1aeb5;
-  stroke: #f1aeb5;
+.node-ingest {
+  fill: #fdbb84; /* UNIQUE: Orange */
+  stroke: #fdbb84;
 }
-.node-oais_cat4 {
-  fill: #ffe69c;
-  stroke: #ffe69c;
+.node-administration {
+  fill: #8dd3c7; /* UNIQUE: Teal */
+  stroke: #8dd3c7;
 }
-.node-oais_cat5 {
-  fill: #9eeaf9;
-  stroke: #9eeaf9;
+.node-dataManagement {
+  fill: #fccde5; /* UNIQUE: Pink */
+  stroke: #fccde5;
 }
-.node-oais_cat6 {
-  fill: #c0b6e0;
-  stroke: #c0b6e0;
+.node-storage {
+  fill: #f4d1a9; /* UNIQUE: Tan */
+  stroke: #f4d1a9;
+}
+.node-access {
+  fill: #b3cde3; /* UNIQUE: Light Blue */
+  stroke: #b3cde3;
 }
 
-.cluster-label-oais_cat1 {
-  fill: #0a58ca;
+.cluster-label-preservationPlanning {
+  fill: #0f5132; /* SHARED: Same as Logical "Planning" */
 }
-.cluster-label-oais_cat2 {
-  fill: #0f5132;
+.cluster-label-ingest {
+  fill: #a15200; /* UNIQUE: Dark Orange */
 }
-.cluster-label-oais_cat3 {
-  fill: #842029;
+.cluster-label-administration {
+  fill: #00594e; /* UNIQUE: Dark Teal */
 }
-.cluster-label-oais_cat4 {
-  fill: #664d03;
+.cluster-label-dataManagement {
+  fill: #8e0051; /* UNIQUE: Magenta */
 }
-.cluster-label-oais_cat5 {
-  fill: #055160;
+.cluster-label-storage {
+  fill: #8c5a1a; /* UNIQUE: Brown */
 }
-.cluster-label-oais_cat6 {
-  fill: #49247a;
+.cluster-label-access {
+  fill: #004b80; /* UNIQUE: Dark Blue */
 }
