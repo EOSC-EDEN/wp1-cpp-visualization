@@ -1,3 +1,5 @@
+// js/ui-builder.js
+
 /**
  * Creates the classification system selector dropdown.
  * @param {object} classifications - The main classification configuration object.
@@ -218,7 +220,7 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
       title: "📋 Procedural",
       types: [
         ["triggered_by", "triggers"],
-        ["supplier", "customer"],
+        ["supplier_to_customer"],
         ["alternative_to"],
       ],
     },
@@ -258,7 +260,7 @@ export function initializeRelationFilters(relationTypes, onFilterChange) {
     label.htmlFor = `filter-${typeKey}`;
 
     const labelText = document.createElement("span");
-    labelText.textContent = info.description;
+    labelText.textContent = info.menuLabel || info.description;
 
     const countSpan = document.createElement("span");
     countSpan.classList.add("relation-count");

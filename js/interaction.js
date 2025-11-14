@@ -62,7 +62,11 @@ export function initializeInteractions(state, onSelectionChange) {
     }
 
     state.edgeMap.forEach((edge) => {
-      if (edge.definedOn !== node) return;
+      // If the selected node is not part of this edge, skip.
+      if (edge.source !== node && edge.target !== node) {
+        return;
+      }
+
       if (edge.groupElement.hasAttribute("data-filtered-out")) {
         return;
       }

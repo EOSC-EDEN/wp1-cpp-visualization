@@ -45,14 +45,10 @@ export const relationTypes = {
     description: "Triggers",
     arrow: "outgoing",
   },
-  supplier: {
+  supplier_to_customer: {
     color: "#3333aa",
-    description: "Supplier",
-    arrow: "incoming",
-  },
-  customer: {
-    color: "#5555cc",
-    description: "Customer",
+    description: "S-to-C",
+    menuLabel: "S-to-C (Supplier-to-Customer)",
     arrow: "outgoing",
   },
   alternative_to: {

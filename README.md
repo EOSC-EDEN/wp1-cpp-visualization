@@ -31,12 +31,14 @@
 
 ... this is documented in the following format (example):
 
-```bash
+```txt
 {
   "CPP-001": {
-    "requires": ["CPP-003"],
-    "required_by": [],
+    "triggered_by": ["CPP-029", "CPP-014"],
+    "supplier_to_customer": ["CPP-002", "CPP-003"],
+    "requires": [],
     "may_require": [],
+    "required_by": ["CPP-002", "CPP-003", "CPP-006", "CPP-016"],
     "may_be_required_by": [],
     "affects": [],
     "affected_by": [],
@@ -44,10 +46,7 @@
     "facilitated_by": [],
     "affinity_with": [],
     "not_to_be_confused_with": [],
-    "triggered_by": ["CPP-029", "CPP-014"],
     "triggers": [],
-    "supplier": [],
-    "customer": ["CPP-002", "CPP-003"],
     "alternative_to": []
   }
 }
@@ -57,8 +56,7 @@
 
 ```bash
 # How to run
-python -m http.server 8000
-```
+python -m http.server 8000```
 
 ## Utilities
 

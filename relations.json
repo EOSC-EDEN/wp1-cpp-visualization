@@ -1,8 +1,6 @@
 {
   "CPP-001": {
     "triggered_by": ["CPP-029", "CPP-014"],
-    "supplier": [],
-    "customer": ["CPP-002", "CPP-003"],
     "requires": [],
     "may_require": [],
     "required_by": ["CPP-002", "CPP-003", "CPP-006", "CPP-016"],
@@ -14,12 +12,11 @@
     "affinity_with": [],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-002", "CPP-003"]
   },
   "CPP-002": {
     "triggered_by": ["CPP-029", "CPP-025", "CPP-006"],
-    "supplier": [],
-    "customer": [],
     "requires": ["CPP-001"],
     "may_require": [],
     "required_by": ["CPP-006", "CPP-025", "CPP-029"],
@@ -35,8 +32,6 @@
   },
   "CPP-003": {
     "triggered_by": ["CPP-012"],
-    "supplier": ["CPP-012", "CPP-001"],
-    "customer": ["CPP-004"],
     "requires": ["CPP-001", "CPP-012"],
     "may_require": [],
     "required_by": ["CPP-013", "CPP-016"],
@@ -48,12 +43,11 @@
     "affinity_with": ["CPP-007"],
     "not_to_be_confused_with": ["CPP-002"],
     "triggers": ["CPP-004"],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-004"]
   },
   "CPP-004": {
     "triggered_by": ["CPP-003"],
-    "supplier": ["CPP-003", "CPP-012"],
-    "customer": [],
     "requires": ["CPP-003", "CPP-012"],
     "may_require": ["CPP-005"],
     "required_by": ["CPP-013"],
@@ -65,7 +59,8 @@
     "affinity_with": ["CPP-002", "CPP-011"],
     "not_to_be_confused_with": ["CPP-007"],
     "triggers": ["CPP-017", "CPP-030"],
-    "alternative_to": ["CPP-027"]
+    "alternative_to": ["CPP-027"],
+    "supplier_to_customer": ["CPP-017"]
   },
   "CPP-005": {
     "triggered_by": [
@@ -79,20 +74,6 @@
       "CPP-016",
       "CPP-021",
       "CPP-027",
-      "CPP-017"
-    ],
-    "supplier": [],
-    "customer": [
-      "CPP-029",
-      "CPP-028",
-      "CPP-016",
-      "CPP-029",
-      "CPP-025",
-      "CPP-014",
-      "CPP-011",
-      "CPP-004",
-      "CPP-027",
-      "CPP-021",
       "CPP-017"
     ],
     "requires": [],
@@ -122,12 +103,22 @@
     "affinity_with": [],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": [
+      "CPP-004",
+      "CPP-011",
+      "CPP-014",
+      "CPP-016",
+      "CPP-017",
+      "CPP-021",
+      "CPP-025",
+      "CPP-027",
+      "CPP-028",
+      "CPP-029"
+    ]
   },
   "CPP-006": {
     "triggered_by": [],
-    "supplier": [],
-    "customer": [],
     "requires": ["CPP-001", "CPP-002"],
     "may_require": [],
     "required_by": [],
@@ -143,8 +134,6 @@
   },
   "CPP-007": {
     "triggered_by": ["CPP-019", "CPP-025", "CPP-029"],
-    "supplier": ["CPP-029", "CPP-019", "CPP-025"],
-    "customer": ["CPP-013", "CPP-016"],
     "requires": ["CPP-012"],
     "may_require": [],
     "required_by": ["CPP-013", "CPP-019", "CPP-029"],
@@ -160,8 +149,6 @@
   },
   "CPP-008": {
     "triggered_by": ["CPP-029", "CPP-014", "CPP-018"],
-    "supplier": ["CPP-018"],
-    "customer": ["CPP-009", "CPP-010", "CPP-014"],
     "requires": [],
     "may_require": [],
     "required_by": [
@@ -182,12 +169,11 @@
     "affinity_with": [],
     "not_to_be_confused_with": ["CPP-010"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-009", "CPP-010", "CPP-014"]
   },
   "CPP-009": {
     "triggered_by": ["CPP-029", "CPP-014", "CPP-026", "CPP-027", "CPP-028"],
-    "supplier": ["CPP-008", "CPP-019", "CPP-022", "CPP-023"],
-    "customer": ["CPP-029", "CPP-021"],
     "requires": ["CPP-008", "CPP-019", "CPP-022", "CPP-023"],
     "may_require": [],
     "required_by": [
@@ -207,12 +193,11 @@
     "affinity_with": [],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-021", "CPP-029"]
   },
   "CPP-010": {
     "triggered_by": ["CPP-029", "CPP-008"],
-    "supplier": ["CPP-008", "CPP-009"],
-    "customer": ["CPP-027"],
     "requires": ["CPP-008"],
     "may_require": ["CPP-009"],
     "required_by": ["CPP-013", "CPP-014", "CPP-015", "CPP-023", "CPP-027"],
@@ -224,12 +209,11 @@
     "affinity_with": [],
     "not_to_be_confused_with": ["CPP-007", "CPP-008"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-027"]
   },
   "CPP-011": {
     "triggered_by": ["CPP-029", "CPP-012"],
-    "supplier": ["CPP-029", "CPP-012"],
-    "customer": [],
     "requires": ["CPP-012"],
     "may_require": ["CPP-005"],
     "required_by": [],
@@ -245,17 +229,6 @@
   },
   "CPP-012": {
     "triggered_by": ["CPP-008", "CPP-013", "CPP-018", "CPP-019", "CPP-023"],
-    "supplier": ["CPP-023", "CPP-008", "CPP-009", "CPP-010"],
-    "customer": [
-      "CPP-019",
-      "CPP-014",
-      "CPP-015",
-      "CPP-003",
-      "CPP-011",
-      "CPP-013",
-      "CPP-016",
-      "CPP-030"
-    ],
     "requires": ["CPP-009", "CPP-018", "CPP-023"],
     "may_require": [],
     "required_by": [
@@ -278,12 +251,21 @@
     "affinity_with": ["CPP-013", "CPP-029"],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": [
+      "CPP-003",
+      "CPP-004",
+      "CPP-011",
+      "CPP-013",
+      "CPP-014",
+      "CPP-015",
+      "CPP-016",
+      "CPP-019",
+      "CPP-030"
+    ]
   },
   "CPP-013": {
     "triggered_by": ["CPP-029", "CPP-025", "CPP-012", "CPP-019"],
-    "supplier": ["CPP-012", "CPP-019", "CPP-025", "CPP-029"],
-    "customer": ["CPP-012", "CPP-019", "CPP-025", "CPP-029"],
     "requires": [
       "CPP-003",
       "CPP-004",
@@ -307,19 +289,11 @@
     "affinity_with": ["CPP-029", "CPP-025", "CPP-012", "CPP-019"],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-012", "CPP-019", "CPP-025", "CPP-029"]
   },
   "CPP-014": {
     "triggered_by": ["CPP-023"],
-    "supplier": [
-      "CPP-023",
-      "CPP-012",
-      "CPP-008",
-      "CPP-009",
-      "CPP-010",
-      "CPP-022"
-    ],
-    "customer": ["CPP-021", "CPP-012"],
     "requires": [
       "CPP-008",
       "CPP-009",
@@ -338,12 +312,11 @@
     "affinity_with": ["CPP-026", "CPP-027"],
     "not_to_be_confused_with": ["CPP-028"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-012", "CPP-021"]
   },
   "CPP-015": {
     "triggered_by": ["CPP-025"],
-    "supplier": ["CPP-025", "CPP-012", "CPP-018"],
-    "customer": [],
     "requires": ["CPP-025", "CPP-010", "CPP-012", "CPP-022"],
     "may_require": [],
     "required_by": ["CPP-013"],
@@ -368,17 +341,6 @@
       "CPP-017",
       "CPP-020"
     ],
-    "supplier": [
-      "CPP-001",
-      "CPP-003",
-      "CPP-005",
-      "CPP-008",
-      "CPP-009",
-      "CPP-012",
-      "CPP-017",
-      "CPP-020"
-    ],
-    "customer": ["CPP-021"],
     "requires": [
       "CPP-001",
       "CPP-003",
@@ -398,7 +360,8 @@
     "affinity_with": ["CPP-022"],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-021"]
   },
   "CPP-017": {
     "triggered_by": [
@@ -409,15 +372,6 @@
       "CPP-023",
       "CPP-027"
     ],
-    "supplier": [
-      "CPP-004",
-      "CPP-027",
-      "CPP-018",
-      "CPP-019",
-      "CPP-020",
-      "CPP-023"
-    ],
-    "customer": [],
     "requires": ["CPP-005", "CPP-025"],
     "may_require": ["CPP-018"],
     "required_by": ["CPP-016"],
@@ -433,22 +387,6 @@
   },
   "CPP-018": {
     "triggered_by": [],
-    "supplier": [],
-    "customer": [
-      "CPP-008",
-      "CPP-010",
-      "CPP-015",
-      "CPP-016",
-      "CPP-017",
-      "CPP-019",
-      "CPP-020",
-      "CPP-022",
-      "CPP-023",
-      "CPP-024",
-      "CPP-025",
-      "CPP-026",
-      "CPP-028"
-    ],
     "requires": [],
     "may_require": [],
     "required_by": ["CPP-012", "CPP-019", "CPP-022", "CPP-023", "CPP-024"],
@@ -460,20 +398,26 @@
     "affinity_with": [],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": [
+      "CPP-008",
+      "CPP-010",
+      "CPP-012",
+      "CPP-015",
+      "CPP-016",
+      "CPP-017",
+      "CPP-019",
+      "CPP-020",
+      "CPP-022",
+      "CPP-023",
+      "CPP-024",
+      "CPP-025",
+      "CPP-026",
+      "CPP-028"
+    ]
   },
   "CPP-019": {
     "triggered_by": ["CPP-029", "CPP-016", "CPP-006"],
-    "supplier": [
-      "CPP-018",
-      "CPP-008",
-      "CPP-010",
-      "CPP-009",
-      "CPP-016",
-      "CPP-007",
-      "CPP-020"
-    ],
-    "customer": ["CPP-029"],
     "requires": ["CPP-007", "CPP-009", "CPP-018", "CPP-020"],
     "may_require": ["CPP-005"],
     "required_by": ["CPP-019", "CPP-029"],
@@ -485,7 +429,8 @@
     "affinity_with": ["CPP-013", "CPP-022", "CPP-023", "CPP-025"],
     "not_to_be_confused_with": [],
     "triggers": ["CPP-017"],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-007", "CPP-009", "CPP-017", "CPP-029"]
   },
   "CPP-020": {
     "triggered_by": [
@@ -496,17 +441,6 @@
       "CPP-027",
       "CPP-024",
       "CPP-017"
-    ],
-    "supplier": [],
-    "customer": [
-      "CPP-025",
-      "CPP-029",
-      "CPP-014",
-      "CPP-026",
-      "CPP-027",
-      "CPP-024",
-      "CPP-017",
-      "CPP-016"
     ],
     "requires": [],
     "may_require": [],
@@ -519,7 +453,18 @@
     "affinity_with": [],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": [
+      "CPP-014",
+      "CPP-016",
+      "CPP-017",
+      "CPP-019",
+      "CPP-024",
+      "CPP-025",
+      "CPP-026",
+      "CPP-027",
+      "CPP-029"
+    ]
   },
   "CPP-021": {
     "triggered_by": [
@@ -531,8 +476,6 @@
       "CPP-027",
       "CPP-028"
     ],
-    "supplier": ["CPP-005", "CPP-012"],
-    "customer": ["CPP-029"],
     "requires": ["CPP-005", "CPP-021", "CPP-029"],
     "may_require": ["CPP-009"],
     "required_by": [],
@@ -544,12 +487,11 @@
     "affinity_with": [],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-029"]
   },
   "CPP-022": {
     "triggered_by": [],
-    "supplier": ["CPP-018"],
-    "customer": ["CPP-009"],
     "requires": ["CPP-018"],
     "may_require": [],
     "required_by": [
@@ -568,12 +510,11 @@
     "affinity_with": ["CPP-016", "CPP-019"],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-009", "CPP-014", "CPP-027"]
   },
   "CPP-023": {
     "triggered_by": ["CPP-018"],
-    "supplier": ["CPP-018", "CPP-010", "CPP-027"],
-    "customer": ["CPP-009"],
     "requires": ["CPP-008", "CPP-009", "CPP-010", "CPP-018"],
     "may_require": [],
     "required_by": ["CPP-009", "CPP-012", "CPP-014"],
@@ -585,12 +526,11 @@
     "affinity_with": ["CPP-019"],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-009", "CPP-012", "CPP-014", "CPP-017"]
   },
   "CPP-024": {
     "triggered_by": ["CPP-029", "CPP-021"],
-    "supplier": ["CPP-018", "CPP-020"],
-    "customer": ["CPP-013"],
     "requires": ["CPP-005", "CPP-009", "CPP-016", "CPP-018"],
     "may_require": [],
     "required_by": [],
@@ -602,12 +542,11 @@
     "affinity_with": ["CPP-025"],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-013"]
   },
   "CPP-025": {
     "triggered_by": [],
-    "supplier": ["CPP-020", "CPP-028"],
-    "customer": [],
     "requires": ["CPP-002", "CPP-005", "CPP-020"],
     "may_require": [],
     "required_by": ["CPP-015", "CPP-017", "CPP-028"],
@@ -619,12 +558,11 @@
     "affinity_with": ["CPP-013", "CPP-019", "CPP-024"],
     "not_to_be_confused_with": ["CPP-006"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-007", "CPP-015", "CPP-028"]
   },
   "CPP-026": {
     "triggered_by": ["CPP-029", "CPP-018"],
-    "supplier": ["CPP-029", "CPP-018", "CPP-008", "CPP-012"],
-    "customer": [],
     "requires": ["CPP-008", "CPP-012", "CPP-022", "CPP-023"],
     "may_require": ["CPP-005"],
     "required_by": [],
@@ -640,8 +578,6 @@
   },
   "CPP-027": {
     "triggered_by": ["CPP-010", "CPP-004"],
-    "supplier": ["CPP-022", "CPP-010", "CPP-009", "CPP-012"],
-    "customer": ["CPP-012"],
     "requires": ["CPP-010", "CPP-012", "CPP-022"],
     "may_require": ["CPP-005", "CPP-009"],
     "required_by": ["CPP-013"],
@@ -653,19 +589,11 @@
     "affinity_with": ["CPP-014"],
     "not_to_be_confused_with": [],
     "triggers": ["CPP-017"],
-    "alternative_to": ["CPP-004"]
+    "alternative_to": ["CPP-004"],
+    "supplier_to_customer": ["CPP-012", "CPP-017", "CPP-023"]
   },
   "CPP-028": {
     "triggered_by": ["CPP-025", "CPP-029"],
-    "supplier": [
-      "CPP-025",
-      "CPP-029",
-      "CPP-001",
-      "CPP-008",
-      "CPP-009",
-      "CPP-010"
-    ],
-    "customer": ["CPP-015"],
     "requires": ["CPP-022", "CPP-025"],
     "may_require": ["CPP-005", "CPP-029"],
     "required_by": ["CPP-013"],
@@ -677,24 +605,11 @@
     "affinity_with": [],
     "not_to_be_confused_with": ["CPP-014", "CPP-026"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-015", "CPP-025"]
   },
   "CPP-029": {
     "triggered_by": [],
-    "supplier": [
-      "CPP-002",
-      "CPP-005",
-      "CPP-007",
-      "CPP-008",
-      "CPP-009",
-      "CPP-010",
-      "CPP-016",
-      "CPP-019",
-      "CPP-020",
-      "CPP-026",
-      "CPP-028"
-    ],
-    "customer": ["CPP-005", "CPP-011", "CPP-021"],
     "requires": [
       "CPP-002",
       "CPP-005",
@@ -715,12 +630,18 @@
     "affinity_with": ["CPP-012", "CPP-013"],
     "not_to_be_confused_with": [],
     "triggers": ["CPP-001", "CPP-002"],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": [
+      "CPP-005",
+      "CPP-007",
+      "CPP-011",
+      "CPP-021",
+      "CPP-026",
+      "CPP-028"
+    ]
   },
   "CPP-030": {
     "triggered_by": ["CPP-004"],
-    "supplier": ["CPP-012", "CPP-004"],
-    "customer": [],
     "requires": ["CPP-012"],
     "may_require": [],
     "required_by": [],
