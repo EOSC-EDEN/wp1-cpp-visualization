@@ -23,12 +23,11 @@
 
 ### Procedural relationships
 
-| Main Relationship | Inverse Relationship | Type          | Description                                                                               |
-| :---------------- | :------------------- | :------------ | :---------------------------------------------------------------------------------------- |
-| `triggered_by`    | `triggers`           | Bidirectional | The related CPP causes the need to perform current CPP.                                   |
-| `supplier`        | `customer`           | Bidirectional | The current CPP uses as input of one of its steps the product of the related CPP.         |
-| `customer`        | `supplier`           | Bidirectional | The current CPP provides as output of one of its steps an input for the related CPP.      |
-| `alternative_to`  | -                    | Symmetrical   | Under certain circumstances, the related CPP may be performed instead of the current CPP. |
+| Main Relationship      | Inverse Relationship | Type           | Description                                                     |
+| :--------------------- | :------------------- | :------------- | :-------------------------------------------------------------- |
+| `triggered_by`         | `triggers`           | Bidirectional  | The related CPP causes the need to perform current CPP.         |
+| `supplier_to_customer` |                      | Unidirectional | The source CPP acts as a supplier to the target CPP (customer). |
+| `alternative_to`       | -                    | Symmetrical    | The related CPP may be performed instead of the current CPP.    |
 
 ... this is documented in the following format (example):
 
