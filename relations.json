@@ -145,7 +145,8 @@
     "affinity_with": ["CPP-003"],
     "not_to_be_confused_with": ["CPP-004", "CPP-010"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": ["CPP-013", "CPP-016"]
   },
   "CPP-008": {
     "triggered_by": ["CPP-029", "CPP-014", "CPP-018"],
@@ -225,7 +226,8 @@
     "affinity_with": ["CPP-002", "CPP-004", "CPP-006"],
     "not_to_be_confused_with": ["CPP-030"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": []
   },
   "CPP-012": {
     "triggered_by": ["CPP-008", "CPP-013", "CPP-018", "CPP-019", "CPP-023"],
@@ -329,7 +331,8 @@
     "affinity_with": [],
     "not_to_be_confused_with": [],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": []
   },
   "CPP-016": {
     "triggered_by": [
@@ -384,7 +387,8 @@
     "affinity_with": [],
     "not_to_be_confused_with": ["CPP-006"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": []
   },
   "CPP-018": {
     "triggered_by": [],
@@ -431,7 +435,7 @@
     "not_to_be_confused_with": [],
     "triggers": ["CPP-017"],
     "alternative_to": [],
-    "supplier_to_customer": ["CPP-007", "CPP-009", "CPP-017", "CPP-029"]
+    "supplier_to_customer": ["CPP-007", "CPP-009", "CPP-013", "CPP-017", "CPP-029"]
   },
   "CPP-020": {
     "triggered_by": [
@@ -560,7 +564,7 @@
     "not_to_be_confused_with": ["CPP-006"],
     "triggers": [],
     "alternative_to": [],
-    "supplier_to_customer": ["CPP-007", "CPP-015", "CPP-028"]
+    "supplier_to_customer": ["CPP-007", "CPP-013", "CPP-015", "CPP-028"]
   },
   "CPP-026": {
     "triggered_by": ["CPP-029", "CPP-018"],
@@ -575,7 +579,8 @@
     "affinity_with": ["CPP-014"],
     "not_to_be_confused_with": ["CPP-028"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": []
   },
   "CPP-027": {
     "triggered_by": ["CPP-010", "CPP-004"],
@@ -636,6 +641,7 @@
       "CPP-005",
       "CPP-007",
       "CPP-011",
+      "CPP-013",
       "CPP-021",
       "CPP-026",
       "CPP-028"
