@@ -54,7 +54,7 @@
 
 ## Running locally
 
-```bash
+````bash
 # How to run
 python -m http.server 8000```
 
@@ -66,4 +66,4 @@ npx prettier --write .
 
 # Tree file structure output
 tree > tree.txt
-```
+````
