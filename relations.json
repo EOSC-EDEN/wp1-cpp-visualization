@@ -146,7 +146,7 @@
     "not_to_be_confused_with": ["CPP-004", "CPP-010"],
     "triggers": [],
     "alternative_to": [],
-    "supplier_to_customer": ["CPP-013", "CPP-016"]
+    "supplier_to_customer": ["CPP-013", "CPP-016", "CPP-019"]
   },
   "CPP-008": {
     "triggered_by": ["CPP-029", "CPP-014"],
