@@ -60,7 +60,7 @@
     "not_to_be_confused_with": ["CPP-007"],
     "triggers": ["CPP-017", "CPP-030"],
     "alternative_to": ["CPP-027"],
-    "supplier_to_customer": ["CPP-017"]
+    "supplier_to_customer": ["CPP-017", "CPP-030"]
   },
   "CPP-005": {
     "triggered_by": [
