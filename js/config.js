@@ -71,7 +71,7 @@ export const relationTypes = {
   may_require: {
     color: "#888888",
     description: "May Require",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   may_be_required_by: {
     color: "#888888",
@@ -88,7 +88,7 @@ export const relationTypes = {
   affected_by: {
     color: "#999999",
     description: "Affected By",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   facilitates: {
     color: "#999999",
@@ -98,7 +98,7 @@ export const relationTypes = {
   facilitated_by: {
     color: "#999999",
     description: "Facilitated By",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   affinity_with: {
     color: "#9999ff",
