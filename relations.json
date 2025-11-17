@@ -171,7 +171,16 @@
     "not_to_be_confused_with": ["CPP-010"],
     "triggers": [],
     "alternative_to": [],
-    "supplier_to_customer": ["CPP-009", "CPP-010", "CPP-014", "CPP-029"]
+    "supplier_to_customer": [
+      "CPP-009",
+      "CPP-010",
+      "CPP-012",
+      "CPP-014",
+      "CPP-019",
+      "CPP-026",
+      "CPP-028",
+      "CPP-029"
+    ]
   },
   "CPP-009": {
     "triggered_by": ["CPP-029", "CPP-014", "CPP-026", "CPP-027", "CPP-028"],
@@ -435,7 +444,13 @@
     "not_to_be_confused_with": [],
     "triggers": ["CPP-017"],
     "alternative_to": [],
-    "supplier_to_customer": ["CPP-007", "CPP-009", "CPP-013", "CPP-017", "CPP-029"]
+    "supplier_to_customer": [
+      "CPP-007",
+      "CPP-009",
+      "CPP-013",
+      "CPP-017",
+      "CPP-029"
+    ]
   },
   "CPP-020": {
     "triggered_by": [
