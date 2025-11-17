@@ -660,6 +660,7 @@
     "affinity_with": ["CPP-002"],
     "not_to_be_confused_with": ["CPP-011"],
     "triggers": [],
-    "alternative_to": []
+    "alternative_to": [],
+    "supplier_to_customer": []
   }
 }
