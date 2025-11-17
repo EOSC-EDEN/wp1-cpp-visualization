@@ -38,7 +38,7 @@ export const relationTypes = {
   triggered_by: {
     color: "#33aa33",
     description: "Triggered By",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   triggers: {
     color: "#55cc55",
