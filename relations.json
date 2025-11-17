@@ -149,7 +149,7 @@
     "supplier_to_customer": ["CPP-013", "CPP-016"]
   },
   "CPP-008": {
-    "triggered_by": ["CPP-029", "CPP-014", "CPP-018"],
+    "triggered_by": ["CPP-029", "CPP-014"],
     "requires": [],
     "may_require": [],
     "required_by": [
