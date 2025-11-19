@@ -38,21 +38,17 @@ export const relationTypes = {
   triggered_by: {
     color: "#33aa33",
     description: "Triggered By",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   triggers: {
     color: "#55cc55",
     description: "Triggers",
     arrow: "outgoing",
   },
-  supplier: {
+  supplier_to_customer: {
     color: "#3333aa",
-    description: "Supplier",
-    arrow: "incoming",
-  },
-  customer: {
-    color: "#5555cc",
-    description: "Customer",
+    description: "S-to-C",
+    menuLabel: "S-to-C (Supplier-to-Customer)",
     arrow: "outgoing",
   },
   alternative_to: {
@@ -65,7 +61,7 @@ export const relationTypes = {
   requires: {
     color: "#444444",
     description: "Requires",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   required_by: {
     color: "#444444",
@@ -75,7 +71,7 @@ export const relationTypes = {
   may_require: {
     color: "#888888",
     description: "May Require",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   may_be_required_by: {
     color: "#888888",
@@ -92,7 +88,7 @@ export const relationTypes = {
   affected_by: {
     color: "#999999",
     description: "Affected By",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   facilitates: {
     color: "#999999",
@@ -102,7 +98,7 @@ export const relationTypes = {
   facilitated_by: {
     color: "#999999",
     description: "Facilitated By",
-    arrow: "incoming",
+    arrow: "outgoing",
   },
   affinity_with: {
     color: "#9999ff",

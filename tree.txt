@@ -7,6 +7,7 @@
 │   ├── filter.js
 │   ├── graph-layout.js
 │   ├── graph-renderer.js
+│   ├── grid-view.js
 │   ├── interaction.js
 │   ├── svg-creator.js
 │   └── ui-builder.js
@@ -17,4 +18,4 @@
 ├── style.css
 └── tree.txt
 
-1 directory, 16 files
+1 directory, 17 files
