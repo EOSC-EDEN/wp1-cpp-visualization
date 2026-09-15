@@ -263,7 +263,7 @@ export function createNodes(nodesData, nodesGroup, cppLinks) {
       anchor.setAttribute("href", link);
       anchor.setAttribute("target", "_blank");
       anchor.setAttribute("rel", "noopener noreferrer");
-      anchor.textContent = "Zenodo link";
+      anchor.textContent = "Documentation link";
       anchor.setAttribute("class", "popup-link");
 
       anchor.addEventListener("mousedown", (event) => {
