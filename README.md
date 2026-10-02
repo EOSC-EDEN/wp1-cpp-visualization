@@ -1,7 +1,7 @@
 # wp1-cpp-visualization
 
 - Conceptual mockup of CPP relations in EOSC EDEN work package 1.2
-- https://cpp.fd-dev.csc.fi (hosted locally w/ simple httpd server)
+- https://eosc-eden.github.io/wp1-cpp-visualization/ (hosted on GitHub)
 
 ## Types of relations
 
